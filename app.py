@@ -3,11 +3,12 @@ import json
 import time
 import requests
 import concurrent.futures
-from datetime import datetime
+from datetime import datetime, timedelta
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from openai import OpenAI
 from dotenv import load_dotenv
+import threading
 
 # Load environment variables
 load_dotenv()
@@ -119,6 +120,11 @@ PRE_UPLOADED_FILE_IDS = [
     "file-Xs8OH74vc4d3T6qTI2bsRiXz"
 ]
 
+# Variáveis globais para controle de atualização
+is_updating = False
+last_update_time = None
+update_thread = None
+
 # --------------------------
 # Funções para Coleta de Tickets (Zoho Desk)
 # --------------------------
@@ -211,7 +217,7 @@ def extract_tickets():
 
 def get_all_archived_ticket_ids(access_token):
     archived_ticket_ids = []
-    base_url = 'https://desk.zoho.com/api/v1/archivedtickets'
+    base_url = 'https://desk.zoho.com/api/v1/tickets/archivedTickets'
     headers = {
         'Authorization': f'Zoho-oauthtoken {access_token}',
         'Content-Type': 'application/json',
@@ -220,7 +226,7 @@ def get_all_archived_ticket_ids(access_token):
     start = 0
     limit = 100
     while True:
-        params = {'from': start, 'limit': limit}
+        params = {'from': start, 'limit': limit, 'departmentId': '358470000000006907'}
         r = requests.get(base_url, headers=headers, params=params, timeout=3000)
         print(f"GET {r.url} status: {r.status_code}")
         if r.status_code != 200 or not r.text.strip():
@@ -235,7 +241,8 @@ def get_all_archived_ticket_ids(access_token):
     return archived_ticket_ids
 
 def get_archived_ticket_detail(ticket_id, access_token):
-    url = f'https://desk.zoho.com/api/v1/archivedtickets/{ticket_id}'
+    url = f'https://desk.zoho.com/api/v1/tickets/{ticket_id}'
+
     headers = {
         'Authorization': f'Zoho-oauthtoken {access_token}',
         'Content-Type': 'application/json',
@@ -485,38 +492,83 @@ CORS(app, resources={
 global_thread_id = None
 global_assistant_id = None  # Será definido após a criação do assistente
 
+def background_update():
+    global is_updating, last_update_time, global_assistant_id, global_thread_id
+    while True:
+        now = datetime.now()
+        # Verifica se é meia-noite e ainda não atualizou hoje
+        if now.hour == 0 and (last_update_time is None or (now - last_update_time).days >= 1):
+            is_updating = True
+            try:
+                print("Iniciando atualização diária...")
+                # Deleta os recursos existentes
+                delete_existing_resources()
+                # Processa os tickets ativos
+                extract_tickets()
+                # Processa os archived tickets
+                extract_archived_tickets()
+                # Envia os arquivos
+                file_ids = upload_archives()
+                # Cria novo vector store
+                vector_store_id = create_vector_store(file_ids)
+                # Cria novo assistente
+                global_assistant_id = create_assistant(vector_store_id)
+                # Cria nova thread
+                global_thread_id = create_thread()
+                last_update_time = now
+                print("Atualização diária concluída com sucesso!")
+            except Exception as e:
+                print(f"Erro durante a atualização: {str(e)}")
+            finally:
+                is_updating = False
+        time.sleep(60)  # Verifica a cada minuto
+
 @app.route('/chat', methods=['POST'])
 def chat():
+    global is_updating
     data = request.get_json()
     pergunta = data.get("pergunta", "")
+    
     if not pergunta:
         return jsonify({"erro": "Pergunta não fornecida"}), 400
-    # Adiciona a mensagem do usuário na thread
-    client.beta.threads.messages.create(
-        thread_id=global_thread_id,
-        role="user",
-        content=pergunta
-    )
-    # Inicia um run para que o assistente processe a mensagem usando o assistant_id criado
-    meu_run = client.beta.threads.runs.create(
-        thread_id=global_thread_id,
-        assistant_id=global_assistant_id
-    )
-    while meu_run.status in ["queued", "in_progress"]:
-        resultado_run = client.beta.threads.runs.retrieve(
+    
+    if is_updating:
+        return jsonify({
+            "resposta": "O sistema está sendo atualizado com os dados mais recentes. Por favor, aguarde alguns minutos e tente novamente.",
+            "status": "updating"
+        })
+    
+    try:
+        # Adiciona a mensagem do usuário na thread
+        client.beta.threads.messages.create(
             thread_id=global_thread_id,
-            run_id=meu_run.id
+            role="user",
+            content=pergunta
         )
-        if resultado_run.status == "completed":
-            todas_mensagens = client.beta.threads.messages.list(thread_id=global_thread_id)
-            resposta = next(
-                (msg.content[0].text.value for msg in todas_mensagens.data if msg.role == "assistant"),
-                "Nenhuma resposta disponível."
+        # Inicia um run para que o assistente processe a mensagem
+        meu_run = client.beta.threads.runs.create(
+            thread_id=global_thread_id,
+            assistant_id=global_assistant_id
+        )
+        
+        while meu_run.status in ["queued", "in_progress"]:
+            resultado_run = client.beta.threads.runs.retrieve(
+                thread_id=global_thread_id,
+                run_id=meu_run.id
             )
-            return jsonify({"resposta": resposta})
-        elif resultado_run.status in ["queued", "in_progress"]:
-            time.sleep(2)
-    return jsonify({"erro": "Não foi possível obter a resposta"}), 500
+            if resultado_run.status == "completed":
+                todas_mensagens = client.beta.threads.messages.list(thread_id=global_thread_id)
+                resposta = next(
+                    (msg.content[0].text.value for msg in todas_mensagens.data if msg.role == "assistant"),
+                    "Nenhuma resposta disponível."
+                )
+                return jsonify({"resposta": resposta, "status": "success"})
+            elif resultado_run.status in ["queued", "in_progress"]:
+                time.sleep(2)
+        
+        return jsonify({"erro": "Não foi possível obter a resposta"}), 500
+    except Exception as e:
+        return jsonify({"erro": str(e)}), 500
 
 @app.route('/test', methods=['GET'])
 def test():
@@ -540,6 +592,12 @@ if __name__ == '__main__':
     print("Inicializando sistema...")
     global_assistant_id, global_thread_id = initialize_system()
     print("Sistema inicializado com sucesso.")
-    print("Iniciando servidor Flask na porta 5001...")
-    # Desabilita o reloader para evitar reinicializações
-    app.run(debug=False, port=5001, use_reloader=False)
+    
+    # Inicia a thread de atualização em background
+    update_thread = threading.Thread(target=background_update)
+    update_thread.daemon = True
+    update_thread.start()
+    
+    # Inicia o servidor Flask
+    app.run(debug=False, use_reloader=False)
+ 

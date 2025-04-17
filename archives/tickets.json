@@ -2,7 +2,7 @@
     {
         "ticketNumber": "4858",
         "subject": "Travamento no Sistema de Sincronismos",
-        "resolution": "Foi realizada a verificação dos sistemas Sinc e Preactor. Mesmo após a reinicialização dos respectivos serviços, os sistemas continuaram inoperantes. Durante a análise, foi identificado que o Serviço de Informações da Internet (IIS), responsável por hospedar e gerenciar os sites e aplicações web, estava desativado. Para restaurar o funcionamento do IIS, foi necessário reiniciar o servidor. Após a reinicialização, os sistemas voltaram a operar normalmente.",
+        "resolution": "Foi realizada a verificação dos sistemas Sinc e Preactor. Mesmo após a reinicialização dos respectivos serviços, os sistemas continuaram inoperantes. Durante a análise, foi identificado que o Serviço de Informações da Internet (IIS), responsável por hospedar e gerenciar os sites e aplicações web, estava desativado. Para restaurar o funcionamento do IIS, foi necessário reiniciar o servidor. Após a reinicialização, os sistemas voltaram a operar normalmente.\n\nDepois foi percebido que o disco estava cheio devido log gerado por Sincdados.",
         "description": "<div style=\"direction: ltr; font-size: 13px; font-family: Arial, Helvetica, sans-serif\"><div>as 14:26 do dia 16/04/2025 o usuário relatou que o sistema de Sincronismo estava travando, não conseguindo publicar programão e nem atualizar os pedidos no Sinc.</div></div>",
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000044490001"
     },
@@ -14,32 +14,11 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000044352005"
     },
     {
-        "ticketNumber": "4814",
-        "subject": "Editor de Registros - Linhas com apenas número de material",
-        "resolution": "Código somente, com OrderNo vazia\n8041529\n8031509\n8012837\n8035335\n\nNa tabela de folgas das operações consta 4 códigos de material que não tem nenhuma ordem de produção, por isso apareciam ordens vazias, somente com o código de material.\n\nAtualizei a integração do PIO LSB_INT_Folgas_operacoes para considerar atualizar os registros referentes aos códigos que possuem ordens de produção.\n\nDessa forma, as linhas vazias apenas com código de material não devem mais aparecer.\n",
-        "description": "<div>Bom dia pessoal,<br></div><div><br></div><div>Estamos com uma situação estranha no Editor.<br></div><div><br></div><div>As três primeiras linhas estão com apenas o número de material com informação, todos os outros campos não se encontra nenhuma.&nbsp;</div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn3e25e00b27fb11e1bcb614904542fa3de94278015e0fe237847063b2737c1d99/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div>E quando abrimos a ordem dando duplo clique, notamos que tem vários campos em branco também:<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn3e25e00b27fb11e1bcb614904542fa3dbb141cb774e44dca0947963cc605b7a3/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div>Até mesmo na tabela de atributos...<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn3e25e00b27fb11e1bcb614904542fa3d7fe8ae531affb32d5f9cfbd7992fd86e/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div>Conversando com o nosso T.I, tentamos analisar se o SAP estava enviando alguma outra info, porém não está enviando nenhuma OP para esses materiais.<br></div><div><br></div><div>então fica a pergunta do problema,&nbsp;<br></div><div><br></div><div>Por que estão aparecendo essas as linhas, como removê-las e o que fazer que elas não apareçam mais?<br></div><div><br></div><div>Conseguem nos ajudar, por favor.&nbsp;</div><div><br></div><div><br></div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000044168007"
-    },
-    {
         "ticketNumber": "4848",
         "subject": "ERRO DURANTE IMPORTAÇÃO DE DADOS",
         "resolution": "Resumo da análise do erro de matriz no Opcenter\n\nA mensagem de erro indicava que o Opcenter estava tentando escrever um valor em uma matriz, mas encontrava algum problema – provavelmente por estar lidando com um valor inválido.\n\nComo identifiquei o erro:\n(1) Rodei a importação completa e observei em qual parte o erro aparecia — percebi que estava entre os PIOs de Ordens e de BOM.\n(2) Fui no PESP e conferi quais PIOs estavam nesse intervalo, testando um a um até achar o causador — era o Ordens_Recursos_Recursos.\n(3) Dentro desse PIO, fui filtrando os dados até encontrar o intervalo onde o erro ocorria — estava entre as linhas 30 e 40 (ou pelo menos parte do problema).\n(4) Olhei essas linhas direto no banco e identifiquei que o problema era com os recursos secundários: o PIO estava tentando importar valores que não existiam como recursos secundários no Opcenter.\n\nSolução aplicada: Identificamos o recurso secundário que não estava cadastrado e o adicionamos a view de recursos secundários\n\n",
         "description": "<div>Segue erro que está acontecendo durante importação de dados. Já realizei o processo de importação do zero novamente, porém o erro se repetiu. Notei que várias OFs não estão aceitando ser programadas, talvez por resultado deste erro.<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn53dbd60f80075319824f03eba254ec3d30ee7827c985d0922926ba39779119fa/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn53dbd60f80075319824f03eba254ec3d1fa59ad325f20493f77f70ec01602043/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div>",
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000044313292"
-    },
-    {
-        "ticketNumber": "4851",
-        "subject": "Moldes não estão vinculados as máquinas",
-        "resolution": "Falta o cadastro da ordem na tabela LSB_INT_Ordens_Recursos_IO",
-        "description": "<div>Boa tarde,<br></div><div><br></div><div><p class=\"x_184561385MsoNormal\"><span style=\"font-size: 10pt; font-family: &quot;Arial&quot;, sans-serif\">O APS abriu, mas os moldes não estão\nvinculados as máquinas, mesmo estando vinculados dentro do ERP, poderia\nverificar o que houve.</span></p>\n\n<p class=\"x_184561385MsoNormal\"><span style=\"font-size: 10pt; font-family: &quot;Arial&quot;, sans-serif\">&nbsp;<img src=\"https://desk.zoho.com/portal/api/uploads/edbsna0f805e0b7b46ff725523494d91dc25a27487fad45178ed8aef55bb1988737da/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></span></p><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsna0f805e0b7b46ff725523494d91dc25a62f297ec8dd3f6578ae62379238f73e7/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div><p></p>\n\n<p class=\"x_184561385MsoNormal\"><span style=\"font-size: 10pt; font-family: &quot;Arial&quot;, sans-serif\"></span></p>\n\n<p class=\"x_184561385MsoNormal\"><span style=\"font-size: 10pt; font-family: &quot;Arial&quot;, sans-serif\"></span></p>\n\n<p class=\"x_184561385MsoNormal\"><span style=\"font-size: 10pt; font-family: &quot;Arial&quot;, sans-serif\">&nbsp;</span></p></div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000044414068"
-    },
-    {
-        "ticketNumber": "4805",
-        "subject": "Divergência no tempo de peças de uma máquina para outra.",
-        "resolution": "O tempo total de processo do Opcenter considera o tempo de fora de turno do recurso. Ou seja, não é somente o tempo produtivo. \n\nIsso fez com que o usuário achasse que os tempos não estavam equivalentes aos cadastrados no ERP.",
-        "description": "<div>Bom dia,<br></div><div><br></div><div>Estamos com divergência na quantidade de peças por min que puxa nos centros Bacci, centro 244 esta puxando menos que o cadastro e centro 245 esta puxando certo, ja verifiquei a eficiência da máquina e ambas estão em 100%, cadastro da peça esta igual para as duas máquina.<br></div><div><br></div><div>única diferença é que a máquina 245 é a maquina alternativa da 244 em todas as peças.<br></div><div><br></div><div>segue abaixo exemplo<b><i><span class=\"x_675310698colour\" style=\"color: rgb(255, 255, 204)\"></span></i></b><span class=\"x_675310698colour\" style=\"color: rgb(255, 255, 204)\"></span><span class=\"x_675310698colour\" style=\"color: rgb(255, 255, 204)\">​</span>s da diferença.</div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsnac87eaa13c6c3ec00be716af61e2e6dfbbdd5678e5dcb9eaaf3ffbd22272fbb1/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsnac87eaa13c6c3ec00be716af61e2e6dfb46b7ebf583e55972b2f93736d22b858/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsnac87eaa13c6c3ec00be716af61e2e6df238e05a50dbcf266978f661ea2b8a997/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\" data-zdeskdocid=\"img_31170554664426586\" class=\"x_675310698docsimage\" data-zdeskdocselectedclass=\"original\"><br></div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000044059174"
     },
     {
         "ticketNumber": "4804",
@@ -49,18 +28,18 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000044059005"
     },
     {
-        "ticketNumber": "4844",
-        "subject": "APS não está abrindo",
-        "resolution": "Memória utilizada do servidor está próximo da capacidade máxima. Recomenda-se aumentar a memória. Como tratamento paliativo, desconectei todos os usuários com exceção da key-user.",
-        "description": "<div>Boa tarde,<br></div><div><br></div><div>O APS não está abrindo, não aparece nenhuma mensagem de erro, fica só carregando, não sai dessa tela.<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsnd6e2f9677279a226ca1ba8f74590012a873f381232dac08c63f45be40f4faffb/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000044335145"
+        "ticketNumber": "4814",
+        "subject": "Editor de Registros - Linhas com apenas número de material",
+        "resolution": "Código somente, com OrderNo vazia\n8041529\n8031509\n8012837\n8035335\n\nNa tabela de folgas das operações consta 4 códigos de material que não tem nenhuma ordem de produção, por isso apareciam ordens vazias, somente com o código de material.\n\nAtualizei a integração do PIO LSB_INT_Folgas_operacoes para considerar atualizar os registros referentes aos códigos que possuem ordens de produção.\n\nDessa forma, as linhas vazias apenas com código de material não devem mais aparecer.\n",
+        "description": "<div>Bom dia pessoal,<br></div><div><br></div><div>Estamos com uma situação estranha no Editor.<br></div><div><br></div><div>As três primeiras linhas estão com apenas o número de material com informação, todos os outros campos não se encontra nenhuma.&nbsp;</div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn3e25e00b27fb11e1bcb614904542fa3de94278015e0fe237847063b2737c1d99/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div>E quando abrimos a ordem dando duplo clique, notamos que tem vários campos em branco também:<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn3e25e00b27fb11e1bcb614904542fa3dbb141cb774e44dca0947963cc605b7a3/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div>Até mesmo na tabela de atributos...<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn3e25e00b27fb11e1bcb614904542fa3d7fe8ae531affb32d5f9cfbd7992fd86e/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div>Conversando com o nosso T.I, tentamos analisar se o SAP estava enviando alguma outra info, porém não está enviando nenhuma OP para esses materiais.<br></div><div><br></div><div>então fica a pergunta do problema,&nbsp;<br></div><div><br></div><div>Por que estão aparecendo essas as linhas, como removê-las e o que fazer que elas não apareçam mais?<br></div><div><br></div><div>Conseguem nos ajudar, por favor.&nbsp;</div><div><br></div><div><br></div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000044168007"
     },
     {
-        "ticketNumber": "4794",
-        "subject": "Falha Relatório - Carregamento por Recurso",
-        "resolution": "O relatório havia sido desconfigurado por causa da implementação de um novo relatório de carregamento por recurso, ainda em teste pela antilhas. As configurações foram ajustadas para que existam 2 procedures, uma para cada relatório, além de alguns ajustes em relação aos parâmetros que estavam sendo puxados incorretamente.",
-        "description": "<div><div>Problema no relatório de Carregamento por Recurso.</div><div>O mesmo não esta executando e apresentando esse erro:<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn4dbcb0f90a0e9cb333fc9a6073e3324422bd29ccfc1b12d603444561333bedfb/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div></div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000043920514"
+        "ticketNumber": "4805",
+        "subject": "Divergência no tempo de peças de uma máquina para outra.",
+        "resolution": "O tempo total de processo do Opcenter considera o tempo de fora de turno do recurso. Ou seja, não é somente o tempo produtivo. \n\nIsso fez com que o usuário achasse que os tempos não estavam equivalentes aos cadastrados no ERP.",
+        "description": "<div>Bom dia,<br></div><div><br></div><div>Estamos com divergência na quantidade de peças por min que puxa nos centros Bacci, centro 244 esta puxando menos que o cadastro e centro 245 esta puxando certo, ja verifiquei a eficiência da máquina e ambas estão em 100%, cadastro da peça esta igual para as duas máquina.<br></div><div><br></div><div>única diferença é que a máquina 245 é a maquina alternativa da 244 em todas as peças.<br></div><div><br></div><div>segue abaixo exemplo<b><i><span class=\"x_675310698colour\" style=\"color: rgb(255, 255, 204)\"></span></i></b><span class=\"x_675310698colour\" style=\"color: rgb(255, 255, 204)\"></span><span class=\"x_675310698colour\" style=\"color: rgb(255, 255, 204)\">​</span>s da diferença.</div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsnac87eaa13c6c3ec00be716af61e2e6dfbbdd5678e5dcb9eaaf3ffbd22272fbb1/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsnac87eaa13c6c3ec00be716af61e2e6dfb46b7ebf583e55972b2f93736d22b858/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsnac87eaa13c6c3ec00be716af61e2e6df238e05a50dbcf266978f661ea2b8a997/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\" data-zdeskdocid=\"img_31170554664426586\" class=\"x_675310698docsimage\" data-zdeskdocselectedclass=\"original\"><br></div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000044059174"
     },
     {
         "ticketNumber": "4783",
@@ -70,6 +49,27 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000043946001"
     },
     {
+        "ticketNumber": "4851",
+        "subject": "Moldes não estão vinculados as máquinas",
+        "resolution": "Falta o cadastro da ordem na tabela LSB_INT_Ordens_Recursos_IO",
+        "description": "<div>Boa tarde,<br></div><div><br></div><div><p class=\"x_184561385MsoNormal\"><span style=\"font-size: 10pt; font-family: &quot;Arial&quot;, sans-serif\">O APS abriu, mas os moldes não estão\nvinculados as máquinas, mesmo estando vinculados dentro do ERP, poderia\nverificar o que houve.</span></p>\n\n<p class=\"x_184561385MsoNormal\"><span style=\"font-size: 10pt; font-family: &quot;Arial&quot;, sans-serif\">&nbsp;<img src=\"https://desk.zoho.com/portal/api/uploads/edbsna0f805e0b7b46ff725523494d91dc25a27487fad45178ed8aef55bb1988737da/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></span></p><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsna0f805e0b7b46ff725523494d91dc25a62f297ec8dd3f6578ae62379238f73e7/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div><p></p>\n\n<p class=\"x_184561385MsoNormal\"><span style=\"font-size: 10pt; font-family: &quot;Arial&quot;, sans-serif\"></span></p>\n\n<p class=\"x_184561385MsoNormal\"><span style=\"font-size: 10pt; font-family: &quot;Arial&quot;, sans-serif\"></span></p>\n\n<p class=\"x_184561385MsoNormal\"><span style=\"font-size: 10pt; font-family: &quot;Arial&quot;, sans-serif\">&nbsp;</span></p></div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000044414068"
+    },
+    {
+        "ticketNumber": "4794",
+        "subject": "Falha Relatório - Carregamento por Recurso",
+        "resolution": "O relatório havia sido desconfigurado por causa da implementação de um novo relatório de carregamento por recurso, ainda em teste pela antilhas. As configurações foram ajustadas para que existam 2 procedures, uma para cada relatório, além de alguns ajustes em relação aos parâmetros que estavam sendo puxados incorretamente.",
+        "description": "<div><div>Problema no relatório de Carregamento por Recurso.</div><div>O mesmo não esta executando e apresentando esse erro:<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn4dbcb0f90a0e9cb333fc9a6073e3324422bd29ccfc1b12d603444561333bedfb/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div></div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000043920514"
+    },
+    {
+        "ticketNumber": "4844",
+        "subject": "APS não está abrindo",
+        "resolution": "Memória utilizada do servidor está próximo da capacidade máxima. Recomenda-se aumentar a memória. Como tratamento paliativo, desconectei todos os usuários com exceção da key-user.",
+        "description": "<div>Boa tarde,<br></div><div><br></div><div>O APS não está abrindo, não aparece nenhuma mensagem de erro, fica só carregando, não sai dessa tela.<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsnd6e2f9677279a226ca1ba8f74590012a873f381232dac08c63f45be40f4faffb/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000044335145"
+    },
+    {
         "ticketNumber": "4833",
         "subject": "Relatório de Programação por Recurso",
         "resolution": "Na modelagem OPCENTER_SC_ACABAMENTO, foi adicionado nos WHERE dos UNION ALL a linha\nAND LT.codigorequerido LIKE 'A%'\nDessa forma, filtrando as bobinas solicitadas no chamado.\nEstava faltando um filtro em um UNION ALL.\n\nO último UNION ALL foi todo comentado, pois faz referência a OrderNo Breakdown e Planned Maintenance trazendo na coluna bobinaextrusada valores vazios, portanto pode ser filtrada para fora.",
@@ -77,18 +77,18 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000044263781"
     },
     {
-        "ticketNumber": "4585",
-        "subject": "Ajuste Programação por Grupo",
-        "resolution": "Foram adicionada a tabela temporária #tempListaMateriais para a consulta final da procedure do relatório Programação por Grupo de Recurso.\n\n\t\t\t\t\t\t--------------------------------------------------------------------------------------------\n\t\t\t\t\t\t-- Temporária para a coluna lista_materiais (lista de materiais da ordem)\n\t\t\t\t\t\t--------------------------------------------------------------------------------------------\n\t\t\t\t\t\t\t\t\t-- é necessário fazer essa temporária pois o agrupamento aqui é só pelo código da ordem\n\t\t\t\t\t\t\t\t\tif object_id('tempdb..#tempListaMateriais') is not null drop table #tempListaMateriais\n\t\t\t\t\t\t\t\t\tselect\n\t\t\t\t\t\t\t\t\t\tcodigo, --codigo da ordem\n\t\t\t\t\t\t\t\t\t\t\tSTRING_AGG(BOM.codigorequerido + ' ' + REPLACE(CAST(ROUND(BOM.qtderequerida, 2) AS VARCHAR), '.', ',') + ' ' + BOM.unidademedida, CHAR(10)) AS lista_materiais --lista de materiais da ordem\n\t\t\t\t\t\t\t\t\t\t\t-- select *\n\t\t\t\t\t\t\t\t\tinto #tempListaMateriais\n\t\t\t\t\t\t\t\t\tfrom LSB_INT_Lista_Tecnica_Ordem_IO BOM\n\t\t\t\t\t\t\t\t\t\t--on BOM.codigo = O.OrderNo\n\t\t\t\t\t\t\t\t\t--where codigo = '158416-4'\n\t\t\t\t\t\t\t\t\tgroup by codigo\n\nNa consulta final, foi adicionado a coluna BOM.lista_materiais e o LEFT JOIN\n\t\t\tLEFT join LSB_INT_Lista_Tecnica_Ordem_IO BOM\n\t\t\t\ton BOM.codigo = O.OrderNo\n\nO número 10 no CHAR(10) refere-se ao código ASCII do caractere de line feed (LF), que é um caractere usado para indicar uma nova linha em textos (também conhecido como \"quebra de linha\"). O código ASCII para a quebra de linha é o número 10, e é isso que o CHAR(10) representa.\n\nO campo prioridade foi adicionado em outro chamado.\n\nTambém, foram realizadas as seguintes modificações: \n\n1. Removi a coluna Marcador/Ordem\n\n2. Modifiquei a coluna Recurso para trazer somente o código do recurso sem a descrição\n\n3. Ajustei o layout de impressão, com todas as colunas em uma página, pronto para impressão. \n      Para aproveitar o espaço, modifiquei a coluna de materiais:\n      - Arredondei a quantidade requerida da lista de materiais para duas casas decimais.\n      - Removi o hífen.\n",
-        "description": "<div>Boa tarde, tudo bem?<br></div><div>Estamos pensando em algumas alterações no relatório \"Programação por Grupo de Recurso\".<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsnfab6f4ab7ec94ce70a566b065d3df0dc47adcf379db201c2e0986e205a336c10/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\" data-zdeskdocid=\"img_13472599147412678\" class=\"x_81444654docsimage\" data-zdeskdocselectedclass=\"original\"></div><div><br></div><div>O intuito é trazer:<br></div><div>\"Código de barras\", conforme primeira coluna. (Marcador/Ordem)</div><div> \"Lista de materiais da ordem\", conforme coloquei na ultima coluna (Conforme tabela de lista de materiais da ordem)<br></div><div>*Além da prioridade que abri um outro chamado.<br></div><div><br></div><div>Com isso conseguiríamos diminuir drasticamente a quantidade de papel na fabrica e centralizaríamos tudo na programação, tornando o único documento físico da fabrica.&nbsp;&nbsp;<br></div><div><br></div><div>Favor, verificar a possibilidade e qualquer coisa podemos conversar por vídeo.<br></div><div><br></div><div>Att,</div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042266268"
-    },
-    {
         "ticketNumber": "4826",
         "subject": "Ordem de Produção não aparece no OpCenter",
         "resolution": "Pedido atrelado a ordem não está na inteegração, e portanto, a ordem não é considerada na integração. Pois, somente ordens com pedidos existentes são integradas no Opcenter",
         "description": "<div>Favor analisar caso da OP&nbsp;78232801C02.<br></div><div><br></div><div>No Protheus a OP 78232801C02 aparece um saldo para produzir, não a op não aparece mais no OpCenter.<br></div><div><br></div><div>Segue fig abaixo.&nbsp;<br></div><div>Imagem Protheus.<br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn09d03271970140dcf6569cf033bb725281622596c8f1a412851a86b6c1470f02/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn09d03271970140dcf6569cf033bb7252cdfa23a59c1bf52c4e664e51ae255a70/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div>Imagem do Editor do OpCenter<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn09d03271970140dcf6569cf033bb72524b9a7ba078d6bd2897bb947b00b159fd/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div>Favor verificar o motivo.</div>",
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000044252007"
+    },
+    {
+        "ticketNumber": "4585",
+        "subject": "Ajuste Programação por Grupo",
+        "resolution": "Foram adicionada a tabela temporária #tempListaMateriais para a consulta final da procedure do relatório Programação por Grupo de Recurso.\n\n\t\t\t\t\t\t--------------------------------------------------------------------------------------------\n\t\t\t\t\t\t-- Temporária para a coluna lista_materiais (lista de materiais da ordem)\n\t\t\t\t\t\t--------------------------------------------------------------------------------------------\n\t\t\t\t\t\t\t\t\t-- é necessário fazer essa temporária pois o agrupamento aqui é só pelo código da ordem\n\t\t\t\t\t\t\t\t\tif object_id('tempdb..#tempListaMateriais') is not null drop table #tempListaMateriais\n\t\t\t\t\t\t\t\t\tselect\n\t\t\t\t\t\t\t\t\t\tcodigo, --codigo da ordem\n\t\t\t\t\t\t\t\t\t\t\tSTRING_AGG(BOM.codigorequerido + ' ' + REPLACE(CAST(ROUND(BOM.qtderequerida, 2) AS VARCHAR), '.', ',') + ' ' + BOM.unidademedida, CHAR(10)) AS lista_materiais --lista de materiais da ordem\n\t\t\t\t\t\t\t\t\t\t\t-- select *\n\t\t\t\t\t\t\t\t\tinto #tempListaMateriais\n\t\t\t\t\t\t\t\t\tfrom LSB_INT_Lista_Tecnica_Ordem_IO BOM\n\t\t\t\t\t\t\t\t\t\t--on BOM.codigo = O.OrderNo\n\t\t\t\t\t\t\t\t\t--where codigo = '158416-4'\n\t\t\t\t\t\t\t\t\tgroup by codigo\n\nNa consulta final, foi adicionado a coluna BOM.lista_materiais e o LEFT JOIN\n\t\t\tLEFT join LSB_INT_Lista_Tecnica_Ordem_IO BOM\n\t\t\t\ton BOM.codigo = O.OrderNo\n\nO número 10 no CHAR(10) refere-se ao código ASCII do caractere de line feed (LF), que é um caractere usado para indicar uma nova linha em textos (também conhecido como \"quebra de linha\"). O código ASCII para a quebra de linha é o número 10, e é isso que o CHAR(10) representa.\n\nO campo prioridade foi adicionado em outro chamado.\n\nTambém, foram realizadas as seguintes modificações: \n\n1. Removi a coluna Marcador/Ordem\n\n2. Modifiquei a coluna Recurso para trazer somente o código do recurso sem a descrição\n\n3. Ajustei o layout de impressão, com todas as colunas em uma página, pronto para impressão. \n      Para aproveitar o espaço, modifiquei a coluna de materiais:\n      - Arredondei a quantidade requerida da lista de materiais para duas casas decimais.\n      - Removi o hífen.\n",
+        "description": "<div>Boa tarde, tudo bem?<br></div><div>Estamos pensando em algumas alterações no relatório \"Programação por Grupo de Recurso\".<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsnfab6f4ab7ec94ce70a566b065d3df0dc47adcf379db201c2e0986e205a336c10/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\" data-zdeskdocid=\"img_13472599147412678\" class=\"x_81444654docsimage\" data-zdeskdocselectedclass=\"original\"></div><div><br></div><div>O intuito é trazer:<br></div><div>\"Código de barras\", conforme primeira coluna. (Marcador/Ordem)</div><div> \"Lista de materiais da ordem\", conforme coloquei na ultima coluna (Conforme tabela de lista de materiais da ordem)<br></div><div>*Além da prioridade que abri um outro chamado.<br></div><div><br></div><div>Com isso conseguiríamos diminuir drasticamente a quantidade de papel na fabrica e centralizaríamos tudo na programação, tornando o único documento físico da fabrica.&nbsp;&nbsp;<br></div><div><br></div><div>Favor, verificar a possibilidade e qualquer coisa podemos conversar por vídeo.<br></div><div><br></div><div>Att,</div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042266268"
     },
     {
         "ticketNumber": "4773",
@@ -126,18 +126,18 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000043338028"
     },
     {
-        "ticketNumber": "4815",
-        "subject": "Cálculo Largura Extrusão - Ajustar cálculo máquina 61",
-        "resolution": "Para este chamado, alteramos a regra que calcula a largura ajustada na extrusora 00000061, pois anteriormente estava selecionando o multiplicador por 4 em todas as ordens .  A partir de agora a regra ficou deste formato: \nSELECT\n    o.OrderNo,\n    r.Name AS recurso,\n    rs.largura_maquina,\n    o.NumericalAttribute15 AS largura_final,\n    CASE\n        WHEN FLOOR(rs.largura_maquina / o.NumericalAttribute15) > 4 THEN 4\n        ELSE FLOOR(rs.largura_maquina / o.NumericalAttribute15)\n    END AS delta1,\n   CAST(FLOOR(rs.largura_maquina / o.NumericalAttribute15) * o.NumericalAttribute15 AS DECIMAL(10,1)) AS name\nFROM userdata.Orders o\nINNER JOIN userdata.Orders_Dataset od ON od.DatasetId = o.DatasetId AND od.name = 'Schedule'\nINNER JOIN UserData.Attribute3 a3 ON a3.Attribute3Id = o.TableAttribute3\nINNER JOIN UserData.Resources r ON r.ResourcesId = o.Resource\nINNER JOIN LSB_INT_SAP_recursos rs ON rs.codigo_recurso = r.Name\nWHERE o.OperationName LIKE '%ext%'\nAND r.Name <> '00000060'\nGO",
-        "description": "<div>Bom dia,<br></div><div><br></div><div>Tudo certo?<br></div><div><br></div><div>Como falamos na reunião do dia 08/04/2025.<br></div><div><br></div><div>Ajustar o cálculo de largura ext para a máquina 61,<br></div><div><br></div><div>Se o número de pista calculado seja menor que 4 pista, usar o valor calculado com o arredondamento para baixo.<br></div><div><br></div><div>Se não, ou seja, número calculado maior que 4, adotar 4 pistas sempre nessa ocasião.<br></div><div><br></div><div>Conseguem nos ajudar, por favor.<br></div><div><br></div><div><br></div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000044168224"
-    },
-    {
         "ticketNumber": "4819",
         "subject": "Mudar nome da Largura Balão ",
         "resolution": "Alteramos o campo  na tabela e campos e resolvemos o chamado.",
         "description": "<div>Boa tarde,<br></div><div><br></div><div>solicito que a largura balão, seja renomeada pra Largura Balão Calculada.&nbsp;</div>",
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000044199001"
+    },
+    {
+        "ticketNumber": "4815",
+        "subject": "Cálculo Largura Extrusão - Ajustar cálculo máquina 61",
+        "resolution": "Para este chamado, alteramos a regra que calcula a largura ajustada na extrusora 00000061, pois anteriormente estava selecionando o multiplicador por 4 em todas as ordens .  A partir de agora a regra ficou deste formato: \nSELECT\n    o.OrderNo,\n    r.Name AS recurso,\n    rs.largura_maquina,\n    o.NumericalAttribute15 AS largura_final,\n    CASE\n        WHEN FLOOR(rs.largura_maquina / o.NumericalAttribute15) > 4 THEN 4\n        ELSE FLOOR(rs.largura_maquina / o.NumericalAttribute15)\n    END AS delta1,\n   CAST(FLOOR(rs.largura_maquina / o.NumericalAttribute15) * o.NumericalAttribute15 AS DECIMAL(10,1)) AS name\nFROM userdata.Orders o\nINNER JOIN userdata.Orders_Dataset od ON od.DatasetId = o.DatasetId AND od.name = 'Schedule'\nINNER JOIN UserData.Attribute3 a3 ON a3.Attribute3Id = o.TableAttribute3\nINNER JOIN UserData.Resources r ON r.ResourcesId = o.Resource\nINNER JOIN LSB_INT_SAP_recursos rs ON rs.codigo_recurso = r.Name\nWHERE o.OperationName LIKE '%ext%'\nAND r.Name <> '00000060'\nGO",
+        "description": "<div>Bom dia,<br></div><div><br></div><div>Tudo certo?<br></div><div><br></div><div>Como falamos na reunião do dia 08/04/2025.<br></div><div><br></div><div>Ajustar o cálculo de largura ext para a máquina 61,<br></div><div><br></div><div>Se o número de pista calculado seja menor que 4 pista, usar o valor calculado com o arredondamento para baixo.<br></div><div><br></div><div>Se não, ou seja, número calculado maior que 4, adotar 4 pistas sempre nessa ocasião.<br></div><div><br></div><div>Conseguem nos ajudar, por favor.<br></div><div><br></div><div><br></div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000044168224"
     },
     {
         "ticketNumber": "4806",
@@ -154,13 +154,6 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000031400033"
     },
     {
-        "ticketNumber": "4667",
-        "subject": "INC3437164 - CM_SURF_LT_LT - Integration error",
-        "resolution": "Após fazer os testes com o passo a passo indicado como comentário no ticket, concluiu-se que o csv estava com a estrutura correta. Ao testar executar o limitador de linhas como r/n/ o arquivo foi limpo (retornou 0 linhas) e ao retomar o formato original o carregamento aconteceu normalmente. As permissões estavam de acordo com o acesso necessário. O erro ocorreu, provavelmente, por um preenchimento equivocado do arquivo pelo usuário.",
-        "description": "<div style=\"direction: ltr; font-size: 13px; font-family: Arial, Helvetica, sans-serif\"><div style=\"direction: ltr\"><div style=\"\"><div style=\"\">Detailed Exception Information:</div><div style=\"\"><br></div><div style=\"\">Unknown Method,</div><div style=\"\">Unknown Error (0)</div><div style=\"\"><br></div><div style=\"\"><br></div><div style=\"\"><br></div><div style=\"\"><br></div><div style=\"\"><br></div><div style=\"\"><br></div><div style=\"\">Preactor.ImportExport.DataTransferImportException</div><div style=\"\">=================================================</div><div style=\"\"><br></div><div style=\"\">One or more errors occured whilst importing 'TROIKA - SP Bulk dbo.Operations_CM'.</div><div style=\"\"><br></div><div style=\"\">Program Location:</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp;at Microsoft.VisualBasic.CompilerServices.LateBinding.InternalLateCall(Object o, Type objType, String name, Object[] args, String[] paramnames, Boolean[] CopyBack, Boolean IgnoreReturn)</div><div style=\"\">&nbsp; &nbsp;at Microsoft.VisualBasic.Interaction.CallByName(Object ObjectRef, String ProcName, CallType UseCallType, Object[] Args)</div><div style=\"\">&nbsp; &nbsp;at PrStdFunctions.LateBoundHelper.RunExport(String arguments)</div><div style=\"\">&nbsp; &nbsp;at PESP.Actions.RunImpExp(Object notused, IEventScriptsCore pespCore, String scriptName, String arguments, String recordCountScriptVariable)</div><div style=\"\"><br></div><div style=\"\"><br></div><div style=\"\">Inner exception:</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp;System.AggregateException</div><div style=\"\">&nbsp; &nbsp;=========================</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp;One or more errors occurred.</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp;Program Location:</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)</div><div style=\"\">&nbsp; &nbsp;at Preactor.ImportExport.ImportController.RunImport(IPreactor_private preactor, String scriptName, Nullable`1 specificFormat, String additionalOptions, ILogger logger)</div><div style=\"\"><br></div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp;Inner exception:</div><div style=\"\">&nbsp; &nbsp;</div><div style=\"\">&nbsp; &nbsp; &nbsp; System.AggregateException</div><div style=\"\">&nbsp; &nbsp; &nbsp; =========================</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; One or more errors occurred.</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; Program Location:</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)</div><div style=\"\">&nbsp; &nbsp;at System.Threading.Tasks.Task`1.InnerInvoke()</div><div style=\"\">&nbsp; &nbsp;at System.Threading.Tasks.Task.Execute()</div><div style=\"\"><br></div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; Inner exception:</div><div style=\"\">&nbsp; &nbsp; &nbsp;&nbsp;</div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Preactor.ImportExport.Common.AdoImportException</div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;===============================================</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Error loading import data</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Program Location:</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; at Preactor.ImportExport.Providers.ADO.AdoImportProvider.&lt;&gt;c__DisplayClass7_0.&lt;FillDataTableImpl&gt;b__1()</div><div style=\"\">&nbsp; &nbsp;at System.Threading.Tasks.Task.Execute()</div><div style=\"\">--- End of stack trace from previous location where exception was thrown ---</div><div style=\"\">&nbsp; &nbsp;at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()</div><div style=\"\">&nbsp; &nbsp;at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)</div><div style=\"\">&nbsp; &nbsp;at Preactor.ImportExport.Providers.ADO.AdoImportProvider.&lt;FillDataTableImpl&gt;d__7.MoveNext()</div><div style=\"\">--- End of stack trace from previous location where exception was thrown ---</div><div style=\"\">&nbsp; &nbsp;at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()</div><div style=\"\">&nbsp; &nbsp;at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)</div><div style=\"\">&nbsp; &nbsp;at Preactor.ImportExport.Providers.ADO.AdoImportProvider.&lt;FillDataTable&gt;d__0.MoveNext()</div><div style=\"\">--- End of stack trace from previous location where exception was thrown ---</div><div style=\"\">&nbsp; &nbsp;at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()</div><div style=\"\">&nbsp; &nbsp;at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)</div><div style=\"\">&nbsp; &nbsp;at Preactor.ImportExport.Providers.ProviderConfiguration`1.&lt;GetImportData&gt;d__10.MoveNext()</div><div style=\"\">--- End of stack trace from previous location where exception was thrown ---</div><div style=\"\">&nbsp; &nbsp;at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()</div><div style=\"\">&nbsp; &nbsp;at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)</div><div style=\"\">&nbsp; &nbsp;at Preactor.ImportExport.Providers.ImportProvider`1.&lt;GetImportData&gt;d__5.MoveNext()</div><div style=\"\"><br></div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Inner exception:</div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.Data.SqlClient.SqlException</div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ==================================</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Bulk load: An unexpected end of file was encountered in the data file.</div><div style=\"\">The OLE DB provider \"BULK\" for linked server \"(null)\" reported an error. The provider did not give any information about the error.</div><div style=\"\">Cannot fetch a row from OLE DB provider \"BULK\" for linked server \"(null)\".</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Program Location:</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)</div><div style=\"\">&nbsp; &nbsp;at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)</div><div style=\"\">&nbsp; &nbsp;at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)</div><div style=\"\">&nbsp; &nbsp;at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()</div><div style=\"\">&nbsp; &nbsp;at System.Data.SqlClient.SqlDataReader.get_MetaData()</div><div style=\"\">&nbsp; &nbsp;at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)</div><div style=\"\">&nbsp; &nbsp;at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task&amp; task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)</div><div style=\"\">&nbsp; &nbsp;at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task&amp; task, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry)</div><div style=\"\">&nbsp; &nbsp;at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)</div><div style=\"\">&nbsp; &nbsp;at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)</div><div style=\"\">&nbsp; &nbsp;at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)</div><div style=\"\">&nbsp; &nbsp;at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)</div><div style=\"\">&nbsp; &nbsp;at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)</div><div style=\"\">&nbsp; &nbsp;at Preactor.ImportExport.Providers.ADO.AdoImportProvider.&lt;&gt;c__DisplayClass7_0.&lt;FillDataTableImpl&gt;b__1()</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Data:</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; HelpLink.ProdName, Microsoft SQL Server</div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; HelpLink.ProdVer, 14.00.3294</div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; HelpLink.EvtSrc, MSSQLServer</div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; HelpLink.EvtID, 4832</div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; HelpLink.BaseHelpUrl, <a href=\"http://go.microsoft.com/fwlink\" target=\"_blank\" rel=\"noreferrer\">http://go.microsoft.com/fwlink</a></div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; HelpLink.LinkId, 20476</div></div></div></div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042787128"
-    },
-    {
         "ticketNumber": "4663",
         "subject": "Informação de Quantidade Original da ordem das operações: 30 e 35 (Não estão subindo)",
         "resolution": "VIEW LSB_INT_Ordens possuía um UNION ALL com um erro na segunda parte:\n\nNa primeira parte:\n\n,O2.qtde AS NumericalAttribute2 -- Quantidade Original\n,NULL AS NumericalAttribute3\n\nEnquanto que na seguinda parte:\n\n,NULL AS NumericalAttribute2 -- Quantidade Original\n,O2.qtde AS NumericalAttribute3 \n\nPor isso que podemos ver que o atributo chamado 'Atributo Numérico 3', é o atributo Quantidade Original das operações 30 e 35, enquanto que o campo 'Quantidade Original' se refere as operações 10 e 20. Podemos ver que quando as ops 10 e 20 possuem valores no campo Quantidade Original, o Atributo Numérico 3 é 0 e quando as ops 30 e 35 possuem Atributo Numérico 3, o campo Quantidade Original é 0.\n\nA correção foi feita na segunda parte, de forma a ficar igual a primeira parte:\n\n,O2.qtde AS NumericalAttribute2 -- Quantidade Original\n,NULL AS NumericalAttribute3\n\nAgora o campo de atributo 'Quantidade Original' deve abranger todas as operações 10, 20, 30 e 35.\nE o campo 'Atributo Numérico 3' apresentará sempre um valor zerado e pode ser ignorado.\n",
@@ -168,18 +161,11 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042789009"
     },
     {
-        "ticketNumber": "4733",
-        "subject": "MELHORIA NO RELATÓRIO DE COMPARAÇÃO DE CENÁRIO",
-        "resolution": "Foi acrescentado o parâmetro e filtro para o cliente no relatório",
-        "description": "<div>Boa tarde!&nbsp;<br></div><div><br></div><div>Solicito uma melhoria para agregar um filtro no relatório de comparação de cenários o campo CLIENTE.<br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><span style=\"\">Denis Sena</span></div><div><br></div><div><br></div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000043344066"
-    },
-    {
-        "ticketNumber": "4797",
-        "subject": "Travamento no envio da programação",
-        "resolution": "foi feito alteração no código. ao enviar programação de gusa, o opcenter apresentava algumas datas como  dd/mm/yyyy 24:00  , onde ao tentar transformar esse valor em tipo data dava erro. foi ajustado para nãoa rrendonar quando é 24:00.",
-        "description": "<div style=\"direction: ltr; font-size: 13px; font-family: Arial, Helvetica, sans-serif\"><div>Ao enviar programação do Opcenter para SincDados ocorreu um erro. Apareceu uma mensagem de erro dizendo \"Erro ao enviar programação de Gusa\"</div></div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000043965209"
+        "ticketNumber": "4667",
+        "subject": "INC3437164 - CM_SURF_LT_LT - Integration error",
+        "resolution": "Após fazer os testes com o passo a passo indicado como comentário no ticket, concluiu-se que o csv estava com a estrutura correta. Ao testar executar o limitador de linhas como r/n/ o arquivo foi limpo (retornou 0 linhas) e ao retomar o formato original o carregamento aconteceu normalmente. As permissões estavam de acordo com o acesso necessário. O erro ocorreu, provavelmente, por um preenchimento equivocado do arquivo pelo usuário.",
+        "description": "<div style=\"direction: ltr; font-size: 13px; font-family: Arial, Helvetica, sans-serif\"><div style=\"direction: ltr\"><div style=\"\"><div style=\"\">Detailed Exception Information:</div><div style=\"\"><br></div><div style=\"\">Unknown Method,</div><div style=\"\">Unknown Error (0)</div><div style=\"\"><br></div><div style=\"\"><br></div><div style=\"\"><br></div><div style=\"\"><br></div><div style=\"\"><br></div><div style=\"\"><br></div><div style=\"\">Preactor.ImportExport.DataTransferImportException</div><div style=\"\">=================================================</div><div style=\"\"><br></div><div style=\"\">One or more errors occured whilst importing 'TROIKA - SP Bulk dbo.Operations_CM'.</div><div style=\"\"><br></div><div style=\"\">Program Location:</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp;at Microsoft.VisualBasic.CompilerServices.LateBinding.InternalLateCall(Object o, Type objType, String name, Object[] args, String[] paramnames, Boolean[] CopyBack, Boolean IgnoreReturn)</div><div style=\"\">&nbsp; &nbsp;at Microsoft.VisualBasic.Interaction.CallByName(Object ObjectRef, String ProcName, CallType UseCallType, Object[] Args)</div><div style=\"\">&nbsp; &nbsp;at PrStdFunctions.LateBoundHelper.RunExport(String arguments)</div><div style=\"\">&nbsp; &nbsp;at PESP.Actions.RunImpExp(Object notused, IEventScriptsCore pespCore, String scriptName, String arguments, String recordCountScriptVariable)</div><div style=\"\"><br></div><div style=\"\"><br></div><div style=\"\">Inner exception:</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp;System.AggregateException</div><div style=\"\">&nbsp; &nbsp;=========================</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp;One or more errors occurred.</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp;Program Location:</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)</div><div style=\"\">&nbsp; &nbsp;at Preactor.ImportExport.ImportController.RunImport(IPreactor_private preactor, String scriptName, Nullable`1 specificFormat, String additionalOptions, ILogger logger)</div><div style=\"\"><br></div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp;Inner exception:</div><div style=\"\">&nbsp; &nbsp;</div><div style=\"\">&nbsp; &nbsp; &nbsp; System.AggregateException</div><div style=\"\">&nbsp; &nbsp; &nbsp; =========================</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; One or more errors occurred.</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; Program Location:</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)</div><div style=\"\">&nbsp; &nbsp;at System.Threading.Tasks.Task`1.InnerInvoke()</div><div style=\"\">&nbsp; &nbsp;at System.Threading.Tasks.Task.Execute()</div><div style=\"\"><br></div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; Inner exception:</div><div style=\"\">&nbsp; &nbsp; &nbsp;&nbsp;</div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Preactor.ImportExport.Common.AdoImportException</div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;===============================================</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Error loading import data</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Program Location:</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; at Preactor.ImportExport.Providers.ADO.AdoImportProvider.&lt;&gt;c__DisplayClass7_0.&lt;FillDataTableImpl&gt;b__1()</div><div style=\"\">&nbsp; &nbsp;at System.Threading.Tasks.Task.Execute()</div><div style=\"\">--- End of stack trace from previous location where exception was thrown ---</div><div style=\"\">&nbsp; &nbsp;at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()</div><div style=\"\">&nbsp; &nbsp;at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)</div><div style=\"\">&nbsp; &nbsp;at Preactor.ImportExport.Providers.ADO.AdoImportProvider.&lt;FillDataTableImpl&gt;d__7.MoveNext()</div><div style=\"\">--- End of stack trace from previous location where exception was thrown ---</div><div style=\"\">&nbsp; &nbsp;at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()</div><div style=\"\">&nbsp; &nbsp;at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)</div><div style=\"\">&nbsp; &nbsp;at Preactor.ImportExport.Providers.ADO.AdoImportProvider.&lt;FillDataTable&gt;d__0.MoveNext()</div><div style=\"\">--- End of stack trace from previous location where exception was thrown ---</div><div style=\"\">&nbsp; &nbsp;at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()</div><div style=\"\">&nbsp; &nbsp;at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)</div><div style=\"\">&nbsp; &nbsp;at Preactor.ImportExport.Providers.ProviderConfiguration`1.&lt;GetImportData&gt;d__10.MoveNext()</div><div style=\"\">--- End of stack trace from previous location where exception was thrown ---</div><div style=\"\">&nbsp; &nbsp;at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()</div><div style=\"\">&nbsp; &nbsp;at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)</div><div style=\"\">&nbsp; &nbsp;at Preactor.ImportExport.Providers.ImportProvider`1.&lt;GetImportData&gt;d__5.MoveNext()</div><div style=\"\"><br></div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Inner exception:</div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.Data.SqlClient.SqlException</div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ==================================</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Bulk load: An unexpected end of file was encountered in the data file.</div><div style=\"\">The OLE DB provider \"BULK\" for linked server \"(null)\" reported an error. The provider did not give any information about the error.</div><div style=\"\">Cannot fetch a row from OLE DB provider \"BULK\" for linked server \"(null)\".</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Program Location:</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)</div><div style=\"\">&nbsp; &nbsp;at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)</div><div style=\"\">&nbsp; &nbsp;at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)</div><div style=\"\">&nbsp; &nbsp;at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()</div><div style=\"\">&nbsp; &nbsp;at System.Data.SqlClient.SqlDataReader.get_MetaData()</div><div style=\"\">&nbsp; &nbsp;at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)</div><div style=\"\">&nbsp; &nbsp;at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task&amp; task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)</div><div style=\"\">&nbsp; &nbsp;at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task&amp; task, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry)</div><div style=\"\">&nbsp; &nbsp;at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)</div><div style=\"\">&nbsp; &nbsp;at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)</div><div style=\"\">&nbsp; &nbsp;at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)</div><div style=\"\">&nbsp; &nbsp;at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)</div><div style=\"\">&nbsp; &nbsp;at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)</div><div style=\"\">&nbsp; &nbsp;at Preactor.ImportExport.Providers.ADO.AdoImportProvider.&lt;&gt;c__DisplayClass7_0.&lt;FillDataTableImpl&gt;b__1()</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Data:</div><div style=\"\"><br></div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; HelpLink.ProdName, Microsoft SQL Server</div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; HelpLink.ProdVer, 14.00.3294</div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; HelpLink.EvtSrc, MSSQLServer</div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; HelpLink.EvtID, 4832</div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; HelpLink.BaseHelpUrl, <a href=\"http://go.microsoft.com/fwlink\" target=\"_blank\" rel=\"noreferrer\">http://go.microsoft.com/fwlink</a></div><div style=\"\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; HelpLink.LinkId, 20476</div></div></div></div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042787128"
     },
     {
         "ticketNumber": "4795",
@@ -189,11 +175,11 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000043990051"
     },
     {
-        "ticketNumber": "4776",
-        "subject": "REGRA DE NEGÓCIO ",
-        "resolution": "Foi alterado o lotemultiplos dos itens do grupo de recurso \"Compras\"",
-        "description": "<div>Bom dia!<br></div><div><br></div><div>Considerar apenas para os itens comprados, o parâmetro de lote mínimo e desconsiderar o parâmetro de lotes múltiplos.&nbsp;<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn8b4698147f15eabb6a2163420a2965866a9a927e4203b7568b7ce59068b94587/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div><br></div><div>Denis Sena</div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000043824003"
+        "ticketNumber": "4797",
+        "subject": "Travamento no envio da programação",
+        "resolution": "foi feito alteração no código. ao enviar programação de gusa, o opcenter apresentava algumas datas como  dd/mm/yyyy 24:00  , onde ao tentar transformar esse valor em tipo data dava erro. foi ajustado para nãoa rrendonar quando é 24:00.",
+        "description": "<div style=\"direction: ltr; font-size: 13px; font-family: Arial, Helvetica, sans-serif\"><div>Ao enviar programação do Opcenter para SincDados ocorreu um erro. Apareceu uma mensagem de erro dizendo \"Erro ao enviar programação de Gusa\"</div></div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000043965209"
     },
     {
         "ticketNumber": "4693",
@@ -201,6 +187,20 @@
         "resolution": "Foi criado um campo para informar se a demanda pode estar sendo impactada por uma ordem com aguarda.",
         "description": "<div>Solicitamos a melhoria no relatório de atendimento da demanda, com a inclusão de um novo campo que mostre as ordens que estão no status de aguarda (ver abaixo).<br></div><div><span style=\"\">Para as ordens que não tiverem esse status, não será necessário o fleg, pois entende-se que esses pedidos tiveram suas inclusões depois da rodada do planning.&nbsp;<br></span></div><div><span style=\"\"><br></span></div><div><span style=\"\"><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn830893158c555bdd23e3f732f4d58442382ebd8ec4b23d9489bd46e78e80c6af/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\">&nbsp;<br></span></div><div><br></div><div>Para melhor entendimento, as ordens com status de aguarda, conta no editor de dados.&nbsp;</div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn830893158c555bdd23e3f732f4d58442e3359f3cf9c6a1228780b0309e1e24c6/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div><br></div><div>Anexo envio o arquivo em excel.<br></div><div><br></div><div><br></div><div>Denis Sena</div>",
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042886049"
+    },
+    {
+        "ticketNumber": "4733",
+        "subject": "MELHORIA NO RELATÓRIO DE COMPARAÇÃO DE CENÁRIO",
+        "resolution": "Foi acrescentado o parâmetro e filtro para o cliente no relatório",
+        "description": "<div>Boa tarde!&nbsp;<br></div><div><br></div><div>Solicito uma melhoria para agregar um filtro no relatório de comparação de cenários o campo CLIENTE.<br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><span style=\"\">Denis Sena</span></div><div><br></div><div><br></div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000043344066"
+    },
+    {
+        "ticketNumber": "4776",
+        "subject": "REGRA DE NEGÓCIO ",
+        "resolution": "Foi alterado o lotemultiplos dos itens do grupo de recurso \"Compras\"",
+        "description": "<div>Bom dia!<br></div><div><br></div><div>Considerar apenas para os itens comprados, o parâmetro de lote mínimo e desconsiderar o parâmetro de lotes múltiplos.&nbsp;<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn8b4698147f15eabb6a2163420a2965866a9a927e4203b7568b7ce59068b94587/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div><br></div><div>Denis Sena</div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000043824003"
     },
     {
         "ticketNumber": "4779",
@@ -231,6 +231,13 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000039207720"
     },
     {
+        "ticketNumber": "4770",
+        "subject": "Não consigo importar ordens do csv",
+        "resolution": "O PIO de Importação de tabelas apresentou erro ao rodar o bulk insert, porém estava dentro das configurações corretas. Foi feita uma limpeza na tabela de ordens e os PIOs e o PESP de importação de tabelas foram excluídos e criados novamente.",
+        "description": "<div>Bom dia<br></div><div><br></div><div>nao consigo importar ordens adicionadas no csv. Não acontece erro nenhum mas não aparece no opcenter</div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000043732003"
+    },
+    {
         "ticketNumber": "4647",
         "subject": "ANTILHAS SANTANA  l QUANTIDADE DE TRANSFERENCIA ",
         "resolution": "Foram analisadas as consultas LSB_UPD_Transferencia_Impressao e LSB_INT_PARALELISMO para entender o cálculo da taxa de transferência, além da simulação das heurísticas no gantt",
@@ -245,32 +252,11 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042692353"
     },
     {
-        "ticketNumber": "4770",
-        "subject": "Não consigo importar ordens do csv",
-        "resolution": "O PIO de Importação de tabelas apresentou erro ao rodar o bulk insert, porém estava dentro das configurações corretas. Foi feita uma limpeza na tabela de ordens e os PIOs e o PESP de importação de tabelas foram excluídos e criados novamente.",
-        "description": "<div>Bom dia<br></div><div><br></div><div>nao consigo importar ordens adicionadas no csv. Não acontece erro nenhum mas não aparece no opcenter</div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000043732003"
-    },
-    {
         "ticketNumber": "4757",
         "subject": "Regra de Sequenciamento",
         "resolution": "\tselect\n\t*\n\tinto [dbo].LSB_INT_Ordem_IO\n\tfrom [OPCENTER_PLASUTIL_IO].[dbo].LSB_INT_Ordem_IO O1\n\twhere 1=1\n\t\tAND EXISTS ( --Seleção das ordens que tem pai (pais existem como ordem_no)\n\t\t\t\tSELECT 1\n\t\t\t\tFROM [OPCENTER_PLASUTIL_IO].[dbo].LSB_INT_Ordem_IO O2\n\t\t\t\tWHERE O2.ordem_no = O1.op_pai\n\t\t\t\t\t) --Filtra as filhas canceladas para fora da integração (ordens que pais não existem como ordem_no)\n\t\t\tOR ( --Com exceção das \"canceladas\" que possuem SEQ_EGA <> 0, significa que estão apontadas pelo MES\n\t\t\t\tNOT EXISTS ( --Seleção das filhas canceladas com SEQ_EGA <> 0\n\t\t\t\t\tSELECT 1\n\t\t\t\t\tFROM [OPCENTER_PLASUTIL_IO].[dbo].LSB_INT_Ordem_IO O2\n\t\t\t\t\tWHERE O2.ordem_no = O1.op_pai\n\t\t\t\t) \n\t\t\t\tAND O1.SEQ_EGA <> 0\n\t\t\t)",
         "description": "<div>Boa tarde, Davi!<br></div><div>Conforme conversamos a pouco, temos uma dificuldade interna, relacionada a cancelamento de ordens Pai, para solução, gostaria da criação de uma regra, onde, sempre que uma ordem filho não tiver uma ordem pai vinculada, não deixa-la integrar para o APS.<br></div><div>A ideia principal disso, é não deixar sequenciar ordens sem pai, pois assim não é realizada a leitura de lista técnica, pois ela não tem um pai para consultar.<br></div><div><br></div><div>Desde já, agradeço.</div>",
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000043574001"
-    },
-    {
-        "ticketNumber": "4730",
-        "subject": "Envio de Solicitação de compra do APS para o SAP",
-        "resolution": "A resolução consistiu basicamente em corrigir os problemas identificados na integração entre o APS e o SAP, especificamente na criação e exportação das Solicitações de Compras (SCs). Para isso, os projetos de desenvolvimento responsáveis pela integração, com foco no PostPurchaseRequest, foram corrigidos e recompilados.\nDurante a análise, a equipe identificou que, após o GO LIVE, foi implementada uma nova regra exigindo que as SCs fossem enviadas com a informação de “Departamento” no cabeçalho e “Planta” nas linhas filhas. Esse requisito adicional estava causando falhas na comunicação entre o APS e o SAP.\nApós a adição de departamento e planta no cabeçalho e as deamis modificações necessárias, foram realizados testes robustos, que incluíram a criação de 11 SCs (posteriormente canceladas para não impactar o ambiente real) e a validação do processo de exportação das SCs para o SAP.",
-        "description": "<div>Boa Tarde!<br></div><div><br></div><div>&nbsp; &nbsp; &nbsp; Solicito suporte para verificar o processo de envio de solicitações de compra do APS para o SAP. Segue abaixo os prints do processo realizado. ( as solicitações não subiram para o SAP )<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn3be8a6aed7b7909477b3b4ceca6e8b2208f44b8a627ddc1d7185ad351ecf3bf4/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn3be8a6aed7b7909477b3b4ceca6e8b228b15eafcc61bbee68eef7d732cddff30/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsnbe1d1bcd5f242f53d378e888ad73cd802151ba26b1d18cde9ae64c3492cf95e4/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsnbe1d1bcd5f242f53d378e888ad73cd80263180beb753986bef06498b9229bf8b/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsnbe1d1bcd5f242f53d378e888ad73cd804ef5b61c1e6388c906457decb3780a69/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000043310162"
-    },
-    {
-        "ticketNumber": "4675",
-        "subject": "Poka yoke para ações do botão direito",
-        "resolution": "adicionei no pesp a ação DISPLAY CAIXA DE MENSAGEM SIM E NAO e depois dela adicionei a ação GO TO ROTULO SE FALSO",
-        "description": "<div style=\"direction: ltr; font-size: 13px; font-family: Arial, Helvetica, sans-serif\"><div>Ticket aberto pela LSB por causa de uma necessidade em agenda presencial de um poka yoke que impedisse que as ações do botão direito fossem acionadas sem querer pelo usuário</div></div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042856001"
     },
     {
         "ticketNumber": "4696",
@@ -280,11 +266,25 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042903441"
     },
     {
+        "ticketNumber": "4675",
+        "subject": "Poka yoke para ações do botão direito",
+        "resolution": "adicionei no pesp a ação DISPLAY CAIXA DE MENSAGEM SIM E NAO e depois dela adicionei a ação GO TO ROTULO SE FALSO",
+        "description": "<div style=\"direction: ltr; font-size: 13px; font-family: Arial, Helvetica, sans-serif\"><div>Ticket aberto pela LSB por causa de uma necessidade em agenda presencial de um poka yoke que impedisse que as ações do botão direito fossem acionadas sem querer pelo usuário</div></div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042856001"
+    },
+    {
         "ticketNumber": "4697",
         "subject": "Campo Status",
         "resolution": "criar campo no tdf e vincular no PIO",
         "description": "<div style=\"direction: ltr; font-size: 13px; font-family: Arial, Helvetica, sans-serif\"><div>Chamado criado pela LSB em agenda presencial para necessidade de criação do campo de status do pedido</div></div>",
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042915141"
+    },
+    {
+        "ticketNumber": "4730",
+        "subject": "Envio de Solicitação de compra do APS para o SAP",
+        "resolution": "A resolução consistiu basicamente em corrigir os problemas identificados na integração entre o APS e o SAP, especificamente na criação e exportação das Solicitações de Compras (SCs). Para isso, os projetos de desenvolvimento responsáveis pela integração, com foco no PostPurchaseRequest, foram corrigidos e recompilados.\nDurante a análise, a equipe identificou que, após o GO LIVE, foi implementada uma nova regra exigindo que as SCs fossem enviadas com a informação de “Departamento” no cabeçalho e “Planta” nas linhas filhas. Esse requisito adicional estava causando falhas na comunicação entre o APS e o SAP.\nApós a adição de departamento e planta no cabeçalho e as deamis modificações necessárias, foram realizados testes robustos, que incluíram a criação de 11 SCs (posteriormente canceladas para não impactar o ambiente real) e a validação do processo de exportação das SCs para o SAP.",
+        "description": "<div>Boa Tarde!<br></div><div><br></div><div>&nbsp; &nbsp; &nbsp; Solicito suporte para verificar o processo de envio de solicitações de compra do APS para o SAP. Segue abaixo os prints do processo realizado. ( as solicitações não subiram para o SAP )<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn3be8a6aed7b7909477b3b4ceca6e8b2208f44b8a627ddc1d7185ad351ecf3bf4/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn3be8a6aed7b7909477b3b4ceca6e8b228b15eafcc61bbee68eef7d732cddff30/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsnbe1d1bcd5f242f53d378e888ad73cd802151ba26b1d18cde9ae64c3492cf95e4/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsnbe1d1bcd5f242f53d378e888ad73cd80263180beb753986bef06498b9229bf8b/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsnbe1d1bcd5f242f53d378e888ad73cd804ef5b61c1e6388c906457decb3780a69/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000043310162"
     },
     {
         "ticketNumber": "4580",
@@ -301,11 +301,11 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000043637003"
     },
     {
-        "ticketNumber": "4441",
-        "subject": "Falha conector",
-        "resolution": "Analisando os logs de eventos, identificamos que a tarefa não está sendo concluída no prazo de uma hora, resultando em um time out. Verificamos a configuração do conector no servidor e constatamos não haver um tempo limite definido para a execução das tarefas, ou seja, esse limite está configurado no SAP. Observamos que a RFC da lista técnica não está sendo processada no tempo estipulado.\n\nSugerimos uma reunião com o responsável pelo assunto na Antilhas para auxiliarmos na resolução do problema.\n",
-        "description": "<div>Falha - LIST_TEC_ORD</div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn96757d8a5c688ffc4200989412ac408f35948c6386cf7c2225485d6bcbe7d813/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\" data-zdeskdocid=\"img_9824111276639806\" class=\"x_146015241docsimage\" data-zdeskdocselectedclass=\"original\"><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn96757d8a5c688ffc4200989412ac408fcbd6a0c8b19026373aa43fa72848d19b/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041539057"
+        "ticketNumber": "4640",
+        "subject": "ANTECIPAÇÃO DE ESTOQUE INTRODUZIDO - PLANNING",
+        "resolution": "Foi criado uma regra de antecipação das ordens de compras para que não ocorrá o planejamento de um volume de produção para os itens comprados. Esta alteração foi gerada para adaptar a regra de negócio da empresa que prefere a antecipação de um pedido do que gerar um novo.",
+        "description": "<div><p class=\"x_202511631MsoNormal\" align=\"center\" style=\"text-align: center\"><span style=\"font-size: 12pt\"><br></span></p><div><span style=\"font-size: 12pt\">Senhores, bom dia!<br></span></div><div><span style=\"font-size: 12pt\">&nbsp;<br></span></div></div><div><p class=\"x_202511631MsoNormal\"><span style=\"font-size: 12pt; line-height: 107%\">Solicito trazer o\nestoque introduzido das ordens de compras no momento zero – Planning\n(antecipação).&nbsp;<br></span></p></div><div><br></div><div>Segue arquivo anexo para melhor entendimento.<br></div><div><br></div><div><br></div><div><br></div><div>Denis Sena</div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042584161"
     },
     {
         "ticketNumber": "4370",
@@ -315,11 +315,11 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041152001"
     },
     {
-        "ticketNumber": "4640",
-        "subject": "ANTECIPAÇÃO DE ESTOQUE INTRODUZIDO - PLANNING",
-        "resolution": "Foi criado uma regra de antecipação das ordens de compras para que não ocorrá o planejamento de um volume de produção para os itens comprados. Esta alteração foi gerada para adaptar a regra de negócio da empresa que prefere a antecipação de um pedido do que gerar um novo.",
-        "description": "<div><p class=\"x_202511631MsoNormal\" align=\"center\" style=\"text-align: center\"><span style=\"font-size: 12pt\"><br></span></p><div><span style=\"font-size: 12pt\">Senhores, bom dia!<br></span></div><div><span style=\"font-size: 12pt\">&nbsp;<br></span></div></div><div><p class=\"x_202511631MsoNormal\"><span style=\"font-size: 12pt; line-height: 107%\">Solicito trazer o\nestoque introduzido das ordens de compras no momento zero – Planning\n(antecipação).&nbsp;<br></span></p></div><div><br></div><div>Segue arquivo anexo para melhor entendimento.<br></div><div><br></div><div><br></div><div><br></div><div>Denis Sena</div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042584161"
+        "ticketNumber": "4441",
+        "subject": "Falha conector",
+        "resolution": "Analisando os logs de eventos, identificamos que a tarefa não está sendo concluída no prazo de uma hora, resultando em um time out. Verificamos a configuração do conector no servidor e constatamos não haver um tempo limite definido para a execução das tarefas, ou seja, esse limite está configurado no SAP. Observamos que a RFC da lista técnica não está sendo processada no tempo estipulado.\n\nSugerimos uma reunião com o responsável pelo assunto na Antilhas para auxiliarmos na resolução do problema.\n",
+        "description": "<div>Falha - LIST_TEC_ORD</div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn96757d8a5c688ffc4200989412ac408f35948c6386cf7c2225485d6bcbe7d813/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\" data-zdeskdocid=\"img_9824111276639806\" class=\"x_146015241docsimage\" data-zdeskdocselectedclass=\"original\"><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn96757d8a5c688ffc4200989412ac408fcbd6a0c8b19026373aa43fa72848d19b/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041539057"
     },
     {
         "ticketNumber": "4724",
@@ -336,11 +336,11 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000043315055"
     },
     {
-        "ticketNumber": "4748",
-        "subject": "Salvar layout editor de registros",
-        "resolution": "A partir da versão 2304 foi adicionada uma nova funcionalidade chamada “Salvar personalizações do Editor com Área de Trabalho” nas opções de “Janela”. Isso faz com que alterações como filtros de coluna no Editor de Dados e configurações de Zoom no gráfico de Gantt sejam salvas. A versão deles é a 17.1, portanto, não tem essa funcionalidade.",
-        "description": "<div>Boa tarde pessoal,<br></div><div><br></div><div>Em conversa com o Lucas Ciello, tentamos achar uma maneira de salvar as colunas no preactor.<br></div><div><br></div><div>Tentamos pela aba janela<br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn84e75e1306377ed62b3ed587ed32441224d88d74658b6b82dc36285699ac8b47/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div>Mas não deu certo.<br></div><div><br></div><div>O Lucas ficou de tentar ver alguma outra maneira de salvar as colunas do editor de registro.&nbsp;<br></div><div><br></div><div>por favor,</div><div><br></div><div>Atenciosamente&nbsp;</div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000043452209"
+        "ticketNumber": "4746",
+        "subject": "Dúvidas sobre a ferramenta Preactor",
+        "resolution": "O usuário Tiago  pediu uma reunião para discutir se haveria possibilidade de equilibrar o recurso elétrica e quais as consequências disso. ",
+        "description": "<div>Olá gostaria de tirar uma dúvida sobre a ferramenta de programação Preactor, referente a quantidade de colaboradores por centro de trabalho.<br></div><div><br></div><div>Exemplo: Operador Elétrica / Operador ELETRMEC.&nbsp;</div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000043452001"
     },
     {
         "ticketNumber": "4750",
@@ -350,6 +350,13 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000043469007"
     },
     {
+        "ticketNumber": "4717",
+        "subject": "Opcenter PRD  fechando - modelagem da montagem",
+        "resolution": "Para solucionar a lentidão, reforçou-se a string de conexão do banco e foi reduzido o horizonte de importação dos dados que estava puxando dados de períodos distantes a necessidade atual. O ticket ficou em validação com esta solução, caso o problema persista será necessário fazer um debug mais detalhado para identificar o que está prejudicando a ferramenta",
+        "description": "<div>Bom dia.&nbsp;<br></div><div>No dia de hoje ao realizar a programação, 3x seguidas o opcenter licença prd encerrou a execução automaticamente . Isso acabou travando a programação do dia.</div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000043112001"
+    },
+    {
         "ticketNumber": "4601",
         "subject": "INC3430379 - Campo com info errado",
         "resolution": "Processo de verificação: entender a alimentação do campo dentro do PIO.\n\nO campo Order Term é definido com base na seguinte regra:\nSe ExportToShortTerm = 1 ou a operação for 'WRQ', recebe 'ST', senão, 'LT'.\n\nPara a Ordem 100613291M e operação TAMO, o valor de Order Term depende do campo ExportToShortTerm.\n\nNo entanto, na tabela dbo.iLongTermOrders, há dois valores diferentes de ExportToShortTerm para essa mesma ordem.\n\n\nComo a junção atualmente ocorre somente pelo número da ordem, isso gera duplicações e inconsistências.\n\nJunção atual:\nINNER JOIN dbo.iLongTermOrders SHTE ON SHTE.OrderNo = ROUT.TASK_ORDER\n\nSugestão de ajuste: incluir o StructureNumber na junção para evitar duplicações.\nINNER JOIN dbo.iLongTermOrders SHTE ON SHTE.OrderNo = ROUT.TASK_ORDER AND SHTE.StructureNumber = PROD.StructureNumber\n",
@@ -357,18 +364,11 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042320277"
     },
     {
-        "ticketNumber": "4746",
-        "subject": "Dúvidas sobre a ferramenta Preactor",
-        "resolution": "O usuário Tiago  pediu uma reunião para discutir se haveria possibilidade de equilibrar o recurso elétrica e quais as consequências disso. ",
-        "description": "<div>Olá gostaria de tirar uma dúvida sobre a ferramenta de programação Preactor, referente a quantidade de colaboradores por centro de trabalho.<br></div><div><br></div><div>Exemplo: Operador Elétrica / Operador ELETRMEC.&nbsp;</div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000043452001"
-    },
-    {
-        "ticketNumber": "4717",
-        "subject": "Opcenter PRD  fechando - modelagem da montagem",
-        "resolution": "Para solucionar a lentidão, reforçou-se a string de conexão do banco e foi reduzido o horizonte de importação dos dados que estava puxando dados de períodos distantes a necessidade atual. O ticket ficou em validação com esta solução, caso o problema persista será necessário fazer um debug mais detalhado para identificar o que está prejudicando a ferramenta",
-        "description": "<div>Bom dia.&nbsp;<br></div><div>No dia de hoje ao realizar a programação, 3x seguidas o opcenter licença prd encerrou a execução automaticamente . Isso acabou travando a programação do dia.</div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000043112001"
+        "ticketNumber": "4748",
+        "subject": "Salvar layout editor de registros",
+        "resolution": "A partir da versão 2304 foi adicionada uma nova funcionalidade chamada “Salvar personalizações do Editor com Área de Trabalho” nas opções de “Janela”. Isso faz com que alterações como filtros de coluna no Editor de Dados e configurações de Zoom no gráfico de Gantt sejam salvas. A versão deles é a 17.1, portanto, não tem essa funcionalidade.",
+        "description": "<div>Boa tarde pessoal,<br></div><div><br></div><div>Em conversa com o Lucas Ciello, tentamos achar uma maneira de salvar as colunas no preactor.<br></div><div><br></div><div>Tentamos pela aba janela<br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn84e75e1306377ed62b3ed587ed32441224d88d74658b6b82dc36285699ac8b47/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div>Mas não deu certo.<br></div><div><br></div><div>O Lucas ficou de tentar ver alguma outra maneira de salvar as colunas do editor de registro.&nbsp;<br></div><div><br></div><div>por favor,</div><div><br></div><div>Atenciosamente&nbsp;</div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000043452209"
     },
     {
         "ticketNumber": "3871",
@@ -434,18 +434,18 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042424083"
     },
     {
-        "ticketNumber": "4588",
-        "subject": "ARREDONDAMENTO DE CONSUMO",
-        "resolution": "Foi alterado a forma de tratar o campo quantidade da ordem, o campo é importado para o  banco IO como varchar e tranfromado em real, ao realizar o cast para alterar a virgula para ponto a quantidade estava sendo arredondada. Desta forma foi alterado  \"CAST(REPLACE([QuantidadeOrdem],',','.') AS REAL)) AS [QuantidadeOrdem]\" para \"CAST(REPLACE(FORMAT([QuantidadeOrdem], 'N6', 'en-US'),',','') AS numeric(28,18)) AS [QuantidadeOrdem]\" na integração.",
-        "description": "<div>Boa noite!<br></div><div><br></div><div>Criar o arredondamento da quantidade de consumo da ordem de produção.<br></div><div><br></div><div><br></div><div><br></div><div><br></div><div>Denis Sena</div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042270146"
-    },
-    {
         "ticketNumber": "4245",
         "subject": "ATUALIZAÇÃO AUTOMÁTICA DE APONTAMENTO - TODAS AS MODELAGENS",
         "resolution": "post no connect https://connect.zoho.com/portal/intranet/stream/317562000005428003",
         "description": "<div>CONFORME CONVERSAMOS, VERIFICAR A POSSIBILIDADE DE QUE, TODOS OS DIAS AS 07H DA MANHÃ (ESSE HORÁRIO DEVE SER ALTERÁVEL DE FORMA SIMPLES), TODAS AS MODELAGENS TENHAM OS APONTAMENTOS ATUALIZADOS AUTOMATICAMENTE, SEM AÇÃO DO USUÁRIO.</div>",
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000040176148"
+    },
+    {
+        "ticketNumber": "4588",
+        "subject": "ARREDONDAMENTO DE CONSUMO",
+        "resolution": "Foi alterado a forma de tratar o campo quantidade da ordem, o campo é importado para o  banco IO como varchar e tranfromado em real, ao realizar o cast para alterar a virgula para ponto a quantidade estava sendo arredondada. Desta forma foi alterado  \"CAST(REPLACE([QuantidadeOrdem],',','.') AS REAL)) AS [QuantidadeOrdem]\" para \"CAST(REPLACE(FORMAT([QuantidadeOrdem], 'N6', 'en-US'),',','') AS numeric(28,18)) AS [QuantidadeOrdem]\" na integração.",
+        "description": "<div>Boa noite!<br></div><div><br></div><div>Criar o arredondamento da quantidade de consumo da ordem de produção.<br></div><div><br></div><div><br></div><div><br></div><div><br></div><div>Denis Sena</div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042270146"
     },
     {
         "ticketNumber": "4700",
@@ -476,13 +476,6 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042215572"
     },
     {
-        "ticketNumber": "4582",
-        "subject": "DISPONILIZAR CAMPO DE COMPRADOR ",
-        "resolution": "Incluido o campo \"Cliente\" na tabela de Fornecimento do Scheduling",
-        "description": "<div>Boa tarde!<br></div><div><br></div><div>Solicito que disponibilizem o campo de comprador na tabela de ordens no planning.<br></div><div><br></div><div><br></div><div><br></div><div>Denis Sena</div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042215739"
-    },
-    {
         "ticketNumber": "4616",
         "subject": "Ordem mto \"forçada\"",
         "resolution": "A ordem 10383551 do Alumínio está com Data Calculada para 01/01/2100 pois ela não está vinculada a nenhum pedido, como mostra no Material Explorer.\nEssa OP não está vinculada a nenhuma necessidade pois a OP 10383548, que requisita o material 50.51.54/1095, não está subindo como demanda para a modelagem do alumínio. Isso acontece pois uma das premissas de levarmos Ordens de Produção como demanda, é que sejam de outros grupos de produção.\nNo caso da OP 10383548, essa está vinculada ao grupo \"ALUMÍNIO\", fazendo com que não seja uma Ordem de Produção de outro grupo e consequentemente não subindo como demanda para a modelagem do alumínio.\n\n\n\n\nCaso o grupo desta OP seja alterado para, por exemplo, o grupo da Montagem, passará a subir como demanda na modelagem do Alumínio e terá outra Data de Necessidade.",
@@ -495,6 +488,13 @@
         "resolution": "Não houve nenhuma modificação neste chamado, porque o comportamento mostrado nos testes foi dentro do esperado da modelagem.",
         "description": "<div style=\"direction: ltr; font-size: 13px; font-family: Arial, Helvetica, sans-serif\"><div>Assim como aconteceu&nbsp;#4601 que é sobre o ST o problema está acontecendo no LT<br></div><div>Então será necessário realizar a mesma correção feita no ST no modelo de LT</div></div>",
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042485039"
+    },
+    {
+        "ticketNumber": "4582",
+        "subject": "DISPONILIZAR CAMPO DE COMPRADOR ",
+        "resolution": "Incluido o campo \"Cliente\" na tabela de Fornecimento do Scheduling",
+        "description": "<div>Boa tarde!<br></div><div><br></div><div>Solicito que disponibilizem o campo de comprador na tabela de ordens no planning.<br></div><div><br></div><div><br></div><div><br></div><div>Denis Sena</div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042215739"
     },
     {
         "ticketNumber": "4613",
@@ -525,13 +525,6 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042764006"
     },
     {
-        "ticketNumber": "4656",
-        "subject": "Prog2 - Importar Ordens",
-        "resolution": "Analisei mais detalhes sobre o erro, através do Visualizador de Eventos do Windows e a mensagem sugere que o erro registrado é um AppHangB1, que geralmente indica que o aplicativo OpcenterAPS.exe parou de responder e ficou travado. \n\nEsse tipo de erro pode ser causado por diversos fatores, como problemas de compatibilidade, uso excessivo de recursos, falha de comunicação com o banco de dados ou arquivos corrompidos.\n\nJulgando quais foram os passos da importação que geraram o erro, julgo que tenha sido uma falha de comunicação com o banco de dados (linked server).\n\nDe qualquer forma, também apaguei o Appdata para garantir.",
-        "description": "<div>Ao rodar o Prog2 - Importar Ordens, aparece este erro, não atualiza as ordens e pedidos dentro do Preactor.</div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn42b07a90d4cbbf7fe6271056be295afcb0fa04bf377b5219adf24830c05b5c0f/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042737003"
-    },
-    {
         "ticketNumber": "4655",
         "subject": "Erro na atualização de operações apontadas",
         "resolution": "Havia uma condição que não contemplava todas as condições.",
@@ -546,18 +539,18 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041484005"
     },
     {
+        "ticketNumber": "4656",
+        "subject": "Prog2 - Importar Ordens",
+        "resolution": "Analisei mais detalhes sobre o erro, através do Visualizador de Eventos do Windows e a mensagem sugere que o erro registrado é um AppHangB1, que geralmente indica que o aplicativo OpcenterAPS.exe parou de responder e ficou travado. \n\nEsse tipo de erro pode ser causado por diversos fatores, como problemas de compatibilidade, uso excessivo de recursos, falha de comunicação com o banco de dados ou arquivos corrompidos.\n\nJulgando quais foram os passos da importação que geraram o erro, julgo que tenha sido uma falha de comunicação com o banco de dados (linked server).\n\nDe qualquer forma, também apaguei o Appdata para garantir.",
+        "description": "<div>Ao rodar o Prog2 - Importar Ordens, aparece este erro, não atualiza as ordens e pedidos dentro do Preactor.</div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn42b07a90d4cbbf7fe6271056be295afcb0fa04bf377b5219adf24830c05b5c0f/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042737003"
+    },
+    {
         "ticketNumber": "4429",
         "subject": "Melhoria relatório \"necessidades de material.\"",
         "resolution": "O campo data desejo já estava disponível na procedure do relatório (LSB_INT_material_needs_full), bastou adicionar a coluna no RDL e configurar para aparecer a data minima nos grupos. Para a coluna de prioridade, foi necessário criar uma utra coluna em que a prioridade não estivesse como nvarchar para possibilitar a minimização. É importante sempre utiizar o report builder 2021 na brinox, pois a resolução demorou mais do que o esperado por conflitos de versão.",
         "description": "<div>Eduardo, bom dia.&nbsp;<br></div><div>Precisamos de uma melhoria neste relatório de necessidades de material.<br></div><div>Gostaríamos que na linha principal do\" item filho\" o sistema retornasse na \"coluna prioridade\" o número da maior prioridade que este componente atende.<br></div><div>No caso abaixo por exemplo o desejado é q ele retorno na coluna do item a prioridade \"90061\" no qual dentre as ordens q ele atende esta é a de maior prioridade. E assim sucessivamente para os outros itens filhos do relatório.</div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsndfacdc7f78721d91010bbdd3b954f2607e60ea8f1502f106508a884ac4a6a4bd/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div>",
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041497003"
-    },
-    {
-        "ticketNumber": "4639",
-        "subject": "Problema de login",
-        "resolution": "Eu não consegui reproduzir o erro relatado neste chamado, mesmo acessando com o mesmo usuário.\n\nDe qualquer forma, apaguei o appdata e devolvi as licenças antigas.\n\nO Alisson testou novamente e deu certo.\n\nDa primeira vez que a mensagem de erro aparecia, tivemos que acionar a Siemens e não tivemos uma conclusão concreta. Apenas apagamos a licença salva do modify e salvamos novamente.",
-        "description": "Bom dia Pessoal tudo bem?<br><br>Não estou conseguindo acessar o Opcenter (PRD e Viewer), aparece esse erro:<br><br><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn26d78bed828698fa0a11ef8bfe22c9be78cb1838c220a779d954be927a0968b9/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><div><br></div><div>Um tempo atrás esse erro já tinha acontecido e a Rachel conseguiu ajustar.</div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042584003"
     },
     {
         "ticketNumber": "4644",
@@ -567,11 +560,11 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042624001"
     },
     {
-        "ticketNumber": "4587",
-        "subject": "MUDANÇA DE ALOCAÇÃO",
-        "resolution": "Foi incluido filtro de forneciemento interno e filtro de demanda interna {#Hold}==0, desta forma  permitindo apenas a alocação de ordens sem o toogle \"Aguarda\" marcado.",
-        "description": "<div>Boa noite!<br></div><div><br></div><div>Mudar alocação de materiais para ordens com aguarda.<br></div><div><br></div><div><br></div><div><br></div><div><br></div><div>Denis Sena</div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042270001"
+        "ticketNumber": "4639",
+        "subject": "Problema de login",
+        "resolution": "Eu não consegui reproduzir o erro relatado neste chamado, mesmo acessando com o mesmo usuário.\n\nDe qualquer forma, apaguei o appdata e devolvi as licenças antigas.\n\nO Alisson testou novamente e deu certo.\n\nDa primeira vez que a mensagem de erro aparecia, tivemos que acionar a Siemens e não tivemos uma conclusão concreta. Apenas apagamos a licença salva do modify e salvamos novamente.",
+        "description": "Bom dia Pessoal tudo bem?<br><br>Não estou conseguindo acessar o Opcenter (PRD e Viewer), aparece esse erro:<br><br><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn26d78bed828698fa0a11ef8bfe22c9be78cb1838c220a779d954be927a0968b9/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><div><br></div><div>Um tempo atrás esse erro já tinha acontecido e a Rachel conseguiu ajustar.</div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042584003"
     },
     {
         "ticketNumber": "4614",
@@ -581,11 +574,11 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042477001"
     },
     {
-        "ticketNumber": "4627",
-        "subject": "Operação finalizada no SGE porém não no mySFC",
-        "resolution": "Patrick Michael Chaves Canciani sobre o erro acima, ordem finalizada no SGE porém está rodando no SFC. Eu fiz a análise, chequei a arquitetura e regra da solução. O que aconteceu foi o seguinte, o operador finalizou a operação no SFC porém ele ou outra pessoa, deletou o apontamento. uma vez deletado, a operação volta para o status anterior, que neste caso era o executando. Esse operação foi finalizada e o apontamento deletado 3 vezes. De acordo com a tabela de log.\n \n{\n\n    \"tipoLancto\": \"P\",\n\n    \"numeroOrdem\": \"3872421\",\n\n    \"numeroOperacao\": \"2\",\n\n    \"dthrInicio\": \"2025-02-27 12:15:00.100\",\n\n    \"dthrFim\": \"2025-02-27 13:25:00.000\",\n\n    \"quantidadeProduzida\": \"31.0\",\n\n    \"quantidadeRefugo\": null,\n\n    \"codigoEmpresa\": \"710\",\n\n    \"numeroRateio\": null,\n\n    \"recurso\": \"103\",\n\n    \"codigoUsuario\": \"ACESSOS\",\n\n    \"quantidadePessoas\": null,\n\n    \"tipoApontamentoPessoas\": null,\n\n    \"id\": \"11407778\",\n\n    \"status_type\": \"Operação Finalizada\",\n\n    \"items_per_hour\": \"22.910340564030829\",\n\n    \"site_guid\": \"1AFFD743-8F39-4D8B-A390-A838ED5F75EB\",\n\n    \"qty_planned\": \"31\",\n\n    \"max_quantity_produced\": \"0\",\n\n    \"envio_SGE\": \"1\",\n\n    \"is_multi_orders\": \"0\",\n\n    \"start_fim\": \"4199900\",\n\n    \"rateio\": \"1\",\n\n    \"execution_id\": \"6A177121-7975-4C50-9CD8-F97B042E0A8E\"\n\n}\n \n{\n\n    \"tipoLancto\": \"P\",\n\n    \"numeroOrdem\": \"3872421\",\n\n    \"numeroOperacao\": \"2\",\n\n    \"dthrInicio\": \"2025-02-27 12:15:00.100\",\n\n    \"dthrFim\": \"2025-02-27 13:26:00.000\",\n\n    \"quantidadeProduzida\": \"31.0\",\n\n    \"quantidadeRefugo\": null,\n\n    \"codigoEmpresa\": \"710\",\n\n    \"numeroRateio\": null,\n\n    \"recurso\": \"103\",\n\n    \"codigoUsuario\": \"ACESSOS\",\n\n    \"quantidadePessoas\": null,\n\n    \"tipoApontamentoPessoas\": null,\n\n    \"id\": \"11407778\",\n\n    \"status_type\": \"Operação Finalizada\",\n\n    \"items_per_hour\": \"22.910340564030829\",\n\n    \"site_guid\": \"1AFFD743-8F39-4D8B-A390-A838ED5F75EB\",\n\n    \"qty_planned\": \"31\",\n\n    \"max_quantity_produced\": \"0\",\n\n    \"envio_SGE\": \"1\",\n\n    \"is_multi_orders\": \"0\",\n\n    \"start_fim\": \"4259900\",\n\n    \"rateio\": \"1\",\n\n    \"execution_id\": \"575BC3E6-18A5-43CC-AC82-3872CAE70AA3\"\n\n}\n\n\n{\n\n    \"tipoLancto\": \"P\",\n\n    \"numeroOrdem\": \"3872421\",\n\n    \"numeroOperacao\": \"2\",\n\n    \"dthrInicio\": \"2025-02-27 12:15:00.100\",\n\n    \"dthrFim\": \"2025-02-27 13:37:00.000\",\n\n    \"quantidadeProduzida\": \"31.0\",\n\n    \"quantidadeRefugo\": null,\n\n    \"codigoEmpresa\": \"710\",\n\n    \"numeroRateio\": null,\n\n    \"recurso\": \"103\",\n\n    \"codigoUsuario\": \"ACESSOS\",\n\n    \"quantidadePessoas\": null,\n\n    \"tipoApontamentoPessoas\": null,\n\n    \"id\": \"11407778\",\n\n    \"status_type\": \"Operação Finalizada\",\n\n    \"items_per_hour\": \"22.910340564030829\",\n\n    \"site_guid\": \"1AFFD743-8F39-4D8B-A390-A838ED5F75EB\",\n\n    \"qty_planned\": \"31\",\n\n    \"max_quantity_produced\": \"0\",\n\n    \"envio_SGE\": \"1\",\n\n    \"is_multi_orders\": \"0\",\n\n    \"start_fim\": \"4919900\",\n\n    \"rateio\": \"1\",\n\n    \"execution_id\": \"AE14C66A-0FBB-48E7-BBB0-6A87AC758D0D\"\n\n}\n\n ",
-        "description": "<div style=\"direction: ltr; font-size: 13px; font-family: Arial, Helvetica, sans-serif\">Operação está finalizada no SGE porém no mySFC está como em execução.</div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042501001"
+        "ticketNumber": "4587",
+        "subject": "MUDANÇA DE ALOCAÇÃO",
+        "resolution": "Foi incluido filtro de forneciemento interno e filtro de demanda interna {#Hold}==0, desta forma  permitindo apenas a alocação de ordens sem o toogle \"Aguarda\" marcado.",
+        "description": "<div>Boa noite!<br></div><div><br></div><div>Mudar alocação de materiais para ordens com aguarda.<br></div><div><br></div><div><br></div><div><br></div><div><br></div><div>Denis Sena</div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042270001"
     },
     {
         "ticketNumber": "4623",
@@ -595,6 +588,13 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042495001"
     },
     {
+        "ticketNumber": "4627",
+        "subject": "Operação finalizada no SGE porém não no mySFC",
+        "resolution": "Patrick Michael Chaves Canciani sobre o erro acima, ordem finalizada no SGE porém está rodando no SFC. Eu fiz a análise, chequei a arquitetura e regra da solução. O que aconteceu foi o seguinte, o operador finalizou a operação no SFC porém ele ou outra pessoa, deletou o apontamento. uma vez deletado, a operação volta para o status anterior, que neste caso era o executando. Esse operação foi finalizada e o apontamento deletado 3 vezes. De acordo com a tabela de log.\n \n{\n\n    \"tipoLancto\": \"P\",\n\n    \"numeroOrdem\": \"3872421\",\n\n    \"numeroOperacao\": \"2\",\n\n    \"dthrInicio\": \"2025-02-27 12:15:00.100\",\n\n    \"dthrFim\": \"2025-02-27 13:25:00.000\",\n\n    \"quantidadeProduzida\": \"31.0\",\n\n    \"quantidadeRefugo\": null,\n\n    \"codigoEmpresa\": \"710\",\n\n    \"numeroRateio\": null,\n\n    \"recurso\": \"103\",\n\n    \"codigoUsuario\": \"ACESSOS\",\n\n    \"quantidadePessoas\": null,\n\n    \"tipoApontamentoPessoas\": null,\n\n    \"id\": \"11407778\",\n\n    \"status_type\": \"Operação Finalizada\",\n\n    \"items_per_hour\": \"22.910340564030829\",\n\n    \"site_guid\": \"1AFFD743-8F39-4D8B-A390-A838ED5F75EB\",\n\n    \"qty_planned\": \"31\",\n\n    \"max_quantity_produced\": \"0\",\n\n    \"envio_SGE\": \"1\",\n\n    \"is_multi_orders\": \"0\",\n\n    \"start_fim\": \"4199900\",\n\n    \"rateio\": \"1\",\n\n    \"execution_id\": \"6A177121-7975-4C50-9CD8-F97B042E0A8E\"\n\n}\n \n{\n\n    \"tipoLancto\": \"P\",\n\n    \"numeroOrdem\": \"3872421\",\n\n    \"numeroOperacao\": \"2\",\n\n    \"dthrInicio\": \"2025-02-27 12:15:00.100\",\n\n    \"dthrFim\": \"2025-02-27 13:26:00.000\",\n\n    \"quantidadeProduzida\": \"31.0\",\n\n    \"quantidadeRefugo\": null,\n\n    \"codigoEmpresa\": \"710\",\n\n    \"numeroRateio\": null,\n\n    \"recurso\": \"103\",\n\n    \"codigoUsuario\": \"ACESSOS\",\n\n    \"quantidadePessoas\": null,\n\n    \"tipoApontamentoPessoas\": null,\n\n    \"id\": \"11407778\",\n\n    \"status_type\": \"Operação Finalizada\",\n\n    \"items_per_hour\": \"22.910340564030829\",\n\n    \"site_guid\": \"1AFFD743-8F39-4D8B-A390-A838ED5F75EB\",\n\n    \"qty_planned\": \"31\",\n\n    \"max_quantity_produced\": \"0\",\n\n    \"envio_SGE\": \"1\",\n\n    \"is_multi_orders\": \"0\",\n\n    \"start_fim\": \"4259900\",\n\n    \"rateio\": \"1\",\n\n    \"execution_id\": \"575BC3E6-18A5-43CC-AC82-3872CAE70AA3\"\n\n}\n\n\n{\n\n    \"tipoLancto\": \"P\",\n\n    \"numeroOrdem\": \"3872421\",\n\n    \"numeroOperacao\": \"2\",\n\n    \"dthrInicio\": \"2025-02-27 12:15:00.100\",\n\n    \"dthrFim\": \"2025-02-27 13:37:00.000\",\n\n    \"quantidadeProduzida\": \"31.0\",\n\n    \"quantidadeRefugo\": null,\n\n    \"codigoEmpresa\": \"710\",\n\n    \"numeroRateio\": null,\n\n    \"recurso\": \"103\",\n\n    \"codigoUsuario\": \"ACESSOS\",\n\n    \"quantidadePessoas\": null,\n\n    \"tipoApontamentoPessoas\": null,\n\n    \"id\": \"11407778\",\n\n    \"status_type\": \"Operação Finalizada\",\n\n    \"items_per_hour\": \"22.910340564030829\",\n\n    \"site_guid\": \"1AFFD743-8F39-4D8B-A390-A838ED5F75EB\",\n\n    \"qty_planned\": \"31\",\n\n    \"max_quantity_produced\": \"0\",\n\n    \"envio_SGE\": \"1\",\n\n    \"is_multi_orders\": \"0\",\n\n    \"start_fim\": \"4919900\",\n\n    \"rateio\": \"1\",\n\n    \"execution_id\": \"AE14C66A-0FBB-48E7-BBB0-6A87AC758D0D\"\n\n}\n\n ",
+        "description": "<div style=\"direction: ltr; font-size: 13px; font-family: Arial, Helvetica, sans-serif\">Operação está finalizada no SGE porém no mySFC está como em execução.</div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042501001"
+    },
+    {
         "ticketNumber": "4604",
         "subject": "MSg de erro ao executar a importação na modelagem da montagem.",
         "resolution": "A mensagem de erro foi reportada na importação de ordens. Ao analisar o PIO 'Importar Ordens' percebi que o TimeOut ocorria na view de Ordens. No SQL, ao rodar a view ela demorava cerca de 6min. É uma view com muitos filtros, cases, trims e já estava bem otimizada, mas realmente era pesada por causa de todas essas funções que não podiam ser removidas. Rodei a view com o Plano de Execução do SQL ativado e o resultado foi um consumo de 26% pela consulta com a tabela de materiais. Criei um índice na view com base na tabela de materiais.\n\nCREATE NONCLUSTERED INDEX IDX_MATERIAL_cdmaterial \nON OPCENTER_IO.dbo.MATERIAL (cdmaterial)\nINCLUDE (centro, tiposuprimentoespecial);\n\nA consulta reduziu de 06:36 para 00:04.",
@@ -602,18 +602,18 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042407005"
     },
     {
-        "ticketNumber": "4621",
-        "subject": "OPCENTER REINICIANDO l ANTILHAS SANTANA",
-        "resolution": "Para conseguir buscar mais detalhes do problema:\n\n- Peguei o horário exato em que ocorreu o erro relatado;\n- Busquei detalhes do erro no Visualizador de Eventos do Windows\n                  No painel esquerdo, expanda Logs do Windows e clique em Aplicativo - No lado direito, clique em Filtrar Log Atual - Busquei o horário relatado pelo usuário.\n- Identificar a mensagem de erro e buscar os detalhes dele\n\nDetalhes encontrados: \nAplicativo: OpcenterAPS.exe Versão do Framework: v4.0.30319 Descrição: O processo foi terminado devido a uma exceção sem tratamento. Informações da Exceção: System.ComponentModel.Win32Exception em MS.Win32.UnsafeNativeMethods.CreateWindowEx(Int32, System.String, System.String, Int32, Int32, Int32, Int32, Int32, System.Runtime.InteropServices.HandleRef, System.Runtime.InteropServices.HandleRef, System.Runtime.InteropServices.HandleRef, System.Object) em MS.Win32.HwndWrapper..ctor(Int32, Int32, Int32, Int32, Int32, Int32, Int32, System.String, IntPtr, MS.Win32.HwndWrapperHook[]) em System.Windows.Interop.HwndSource.Initialize(System.Windows.Interop.HwndSourceParameters) em System.Windows.Window.CreateSourceWindow(Boolean) em System.Windows.Window.ShowHelper(System.Object) em System.Windows.Window.ShowDialog() em Preactor.Dialog.Dialog.ShowWPFDialog(Preactor.Infrastructure.Models.Dialog.DialogInput) em Preactor.Dialog.Dialog.ShowDialog(Preactor.Infrastructure.Models.Dialog.DialogInput) em <Module>.Preactor.Dialog.DialogUtilityProvider.ShowStandardDialog(HWND__*, Int32, Int32, Boolean, Boolean, Char*, Int32, Int32, Int32) em MS.Win32.UnsafeNativeMethods.DispatchMessage(System.Windows.Interop.MSG ByRef) em System.Windows.Threading.Dispatcher.PushFrameImpl(System.Windows.Threading.DispatcherFrame) em System.Windows.Application.RunDispatcher(System.Object) em System.Windows.Application.RunInternal(System.Windows.Window) em afw.a() \n\nAção paliativa:\nRotina para apagar a pasta de AppData dos usuários que relataram problemas",
-        "description": "<div>Boa tarde,<br></div><div><br></div><div>Rachel,</div><div>Por gentileza poderia verificar a causa do Opcenter reiniciar quando inicio uma tarefa de pegar uma ordem no gantt e alterar sua sequência dentro do próprio recurso o sistema cai e eu perco todas as alterações já realizadas.&nbsp;<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsnb41a4413a361fc782d2b7f82922b1b6f2efb45f0017b5212bdb37ae3057cf43a/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042448188"
-    },
-    {
         "ticketNumber": "4100",
         "subject": "Atributos e Status",
         "resolution": "Criar no opcenter os novos order status que irão vir na view LSB_INT_ORDEM no campo orderstatus\n",
         "description": "<div style=\"direction: ltr; font-size: 13px; font-family: Arial, Helvetica, sans-serif\"><div><span style=\"font-size: 10pt; font-family: &quot;Verdana&quot;, sans-serif\">Analisamos\na criação de novos atributos para facilitar a programação por status da ordem.</span><br></div><div>Por exemplo: priorizar na programação 1º _ status em andamento; 2º abastecida; 3º aguardando abastecimento; 4º Aguardando pre-press; 5º Aguardando pasta&nbsp;</div><div></div><div><br></div></div>",
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000039029782"
+    },
+    {
+        "ticketNumber": "4621",
+        "subject": "OPCENTER REINICIANDO l ANTILHAS SANTANA",
+        "resolution": "Para conseguir buscar mais detalhes do problema:\n\n- Peguei o horário exato em que ocorreu o erro relatado;\n- Busquei detalhes do erro no Visualizador de Eventos do Windows\n                  No painel esquerdo, expanda Logs do Windows e clique em Aplicativo - No lado direito, clique em Filtrar Log Atual - Busquei o horário relatado pelo usuário.\n- Identificar a mensagem de erro e buscar os detalhes dele\n\nDetalhes encontrados: \nAplicativo: OpcenterAPS.exe Versão do Framework: v4.0.30319 Descrição: O processo foi terminado devido a uma exceção sem tratamento. Informações da Exceção: System.ComponentModel.Win32Exception em MS.Win32.UnsafeNativeMethods.CreateWindowEx(Int32, System.String, System.String, Int32, Int32, Int32, Int32, Int32, System.Runtime.InteropServices.HandleRef, System.Runtime.InteropServices.HandleRef, System.Runtime.InteropServices.HandleRef, System.Object) em MS.Win32.HwndWrapper..ctor(Int32, Int32, Int32, Int32, Int32, Int32, Int32, System.String, IntPtr, MS.Win32.HwndWrapperHook[]) em System.Windows.Interop.HwndSource.Initialize(System.Windows.Interop.HwndSourceParameters) em System.Windows.Window.CreateSourceWindow(Boolean) em System.Windows.Window.ShowHelper(System.Object) em System.Windows.Window.ShowDialog() em Preactor.Dialog.Dialog.ShowWPFDialog(Preactor.Infrastructure.Models.Dialog.DialogInput) em Preactor.Dialog.Dialog.ShowDialog(Preactor.Infrastructure.Models.Dialog.DialogInput) em <Module>.Preactor.Dialog.DialogUtilityProvider.ShowStandardDialog(HWND__*, Int32, Int32, Boolean, Boolean, Char*, Int32, Int32, Int32) em MS.Win32.UnsafeNativeMethods.DispatchMessage(System.Windows.Interop.MSG ByRef) em System.Windows.Threading.Dispatcher.PushFrameImpl(System.Windows.Threading.DispatcherFrame) em System.Windows.Application.RunDispatcher(System.Object) em System.Windows.Application.RunInternal(System.Windows.Window) em afw.a() \n\nAção paliativa:\nRotina para apagar a pasta de AppData dos usuários que relataram problemas",
+        "description": "<div>Boa tarde,<br></div><div><br></div><div>Rachel,</div><div>Por gentileza poderia verificar a causa do Opcenter reiniciar quando inicio uma tarefa de pegar uma ordem no gantt e alterar sua sequência dentro do próprio recurso o sistema cai e eu perco todas as alterações já realizadas.&nbsp;<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsnb41a4413a361fc782d2b7f82922b1b6f2efb45f0017b5212bdb37ae3057cf43a/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042448188"
     },
     {
         "ticketNumber": "4596",
@@ -644,18 +644,18 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042283005"
     },
     {
-        "ticketNumber": "4571",
-        "subject": "Melhoria:  Tempo de espera entre rotas produtivas ",
-        "resolution": "\nNós fizemos algumas alterações nos código de integração para que fosse possível receber a informação de Tempo de CQ (em dias). Agora a tabela 3.0Produtos_Roteiros.csv tem um campo chamado Tempo_CQ que é preenchido pelo Edson e isso é utilizado pelo Opcenter para alocar o conceito de \"Folga para a próxima Operação\" na etapa de Revestimento dos roteiros. \n\nAlterações nos códigos da view LSB_INT_Ordens: Adição do Tempo_CQ.\n\n\n\nAlteração na tabela LSB_3_0_PRODUTOS_ROTEIROS: Adição da coluna Tempo_CQ como tipo Inteiro. \n\n\nDentro do Opcenter essa informação é preenchida no campo \"Folga Mínima Para a Próxima Operação\" na unidade de tempo de \"Dias\".\n\nEntão os valores alocados no campo \"Tempo_CQ\" serão considerados como dias inteiros de folga para a próxima etapa de produção. \n",
-        "description": "<div>Melhoria:&nbsp; Tempo de espera entre rotas produtivas&nbsp;<br></div><div><br></div><div>Conforme acordado em nossa reunião, precisamos carregar via planilha Excel o tempo de CQ para os produtos intermediários que são consumidos nos semiacabados.<br></div><div>Exemplo:&nbsp;831436&nbsp;EZETIMIBA 2,5 MG COMPRIMIDO REVESTIDO</div><div><br></div><div><br></div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042215150"
-    },
-    {
         "ticketNumber": "4574",
         "subject": "CARGA DE DADOS l ANTILHAS SANTANA ",
         "resolution": "Adicionei um passo de limpeza no script de importação para que este erro não volte a ocorrer.\nO passo se encontra na procedure LSB_INT_Limpa_Produto e apaga algumas tabelas que não são atualizadas por não utilização e podem ocasionar essas mensagens de erro reportadas no chamado.\n",
         "description": "<div>Bom dia,<br></div><div><br></div><div>Rachel, tudo bem?<br></div><div><br></div><div>Poderia verificar o erro abaixo ao carregar os dados para o APS? Algumas tabelas não estão carregando o Attribute 1 ao 36.<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsncc852fabe230a2c31395cfb1d4267ca3b40a97cd1516fa4ce46beb3ae597c985/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div>",
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042233227"
+    },
+    {
+        "ticketNumber": "4571",
+        "subject": "Melhoria:  Tempo de espera entre rotas produtivas ",
+        "resolution": "\nNós fizemos algumas alterações nos código de integração para que fosse possível receber a informação de Tempo de CQ (em dias). Agora a tabela 3.0Produtos_Roteiros.csv tem um campo chamado Tempo_CQ que é preenchido pelo Edson e isso é utilizado pelo Opcenter para alocar o conceito de \"Folga para a próxima Operação\" na etapa de Revestimento dos roteiros. \n\nAlterações nos códigos da view LSB_INT_Ordens: Adição do Tempo_CQ.\n\n\n\nAlteração na tabela LSB_3_0_PRODUTOS_ROTEIROS: Adição da coluna Tempo_CQ como tipo Inteiro. \n\n\nDentro do Opcenter essa informação é preenchida no campo \"Folga Mínima Para a Próxima Operação\" na unidade de tempo de \"Dias\".\n\nEntão os valores alocados no campo \"Tempo_CQ\" serão considerados como dias inteiros de folga para a próxima etapa de produção. \n",
+        "description": "<div>Melhoria:&nbsp; Tempo de espera entre rotas produtivas&nbsp;<br></div><div><br></div><div>Conforme acordado em nossa reunião, precisamos carregar via planilha Excel o tempo de CQ para os produtos intermediários que são consumidos nos semiacabados.<br></div><div>Exemplo:&nbsp;831436&nbsp;EZETIMIBA 2,5 MG COMPRIMIDO REVESTIDO</div><div><br></div><div><br></div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042215150"
     },
     {
         "ticketNumber": "4592",
@@ -693,18 +693,18 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041937001"
     },
     {
-        "ticketNumber": "4278",
-        "subject": "Ajustar folgas revisora e cura do material",
-        "resolution": "Para este chamado a atuação foi a criação de folgas entre os processos de impressão e laminação.\n\nPortanto ajustamos a consulta, para que os tempos encaminhados histórico do chamado, fossem atribuídos para cada tipo de família fert.\n\nQualquer dúvida, estou a disposição.",
-        "description": "<div>Bom dia!</div><div><br></div><div>Pedimos que seja a<span style=\"font-size: 16px; color: rgb(36, 36, 36); font-family: &quot;Aptos Narrow&quot;, Calibri, &quot;sans-serif&quot;, &quot;Mongolian Baiti&quot;, &quot;Microsoft Yi Baiti&quot;, &quot;Javanese Text&quot;, &quot;Yu Gothic&quot;\">justada para fazer funcionar a lógica para folga entre impressão e laminação (revisão) e criar lógica para cura depois da laminação. </span></div><div><br></div><div>Conforme alinhado em agenda presencial.</div><div><br></div><div>Podem nos ajudar?<br>Muito obrigada!</div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000040591830"
-    },
-    {
         "ticketNumber": "2196",
         "subject": "Demanda negativa em ordem de produção - forma de criar fornecimento no opcenter",
         "resolution": "A solução de Co-Produtos possivelmente atenderia a demanda do cliente, porém foi optado por não seguirmos com esta demanda neste momento.",
         "description": "<html><head></head><body><div>Boa tarde Renato,<br></div><div><br></div><div>No passado falamos sobre duas demandas de devolução de saldos em ordem de produção para produtos prontos, sendo elas a de retrabalho e a de saldo negativo em ordem. Eram dois chamados.<br></div><div><br></div><div>Gostaria de reabrir/ voltar a falar, sobre uma forma de receber no opcenter um \"fornecimento\" de um produto, seja ele produto pronto ou semi elaborado, quando este está dentro de uma estrutura de ordem com saldo negativo, ou seja, devolução para estoque.<br></div><div><br></div><div>Notamos uma família de produtos interessante para fazer esse trabalho (ao contrário do que falamos no passado que não havia exemplos).<br></div><div><br></div><div>Veja que no exemplo abaixo a ordem de produção do item&nbsp;50.01.01/0891 tem uma estrutura consumindo dois códigos de semi elaborados, com saldos negativos:<br></div><div><br></div><div><img style=\"padding: 0px; max-width: 100%; box-sizing: border-box; width: 692px; height: auto\" data-zdeskdocid=\"img_8939322901397502\" class=\"x_168792908docsimage\" data-zdeskdocselectedclass=\"original\" src=\"https://desk.zoho.com/portal/api/uploads/edbsn4953e6d6e4ed2270f6e5a6146d348333a8d1dbdf354690202cbe842521ff3c2c/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\"><br></div><div><br></div><div>Para ajudar a entender o processo deste item, quando a pinça 50.01.01/0891 entra em máquina, aproveitamos o slitter que seria \"descartado\" para produzir o item 50.01.01/0015. Chamamos de Coprodução.<br></div><div><br></div><div>Quando a ordem é reportada, ela joga para o estoque o produto do cabeçalho da ordem (/0891) e DEVOLVE, ou seja, cria estoque do /0015, no caso do exemplo acima de 7.200 unidades.<br></div><div><br></div><div>Precisamos que o opcenter entenda que haverá um fornecimento do item /0015 de 7.200 peças na data que está sequenciada a ordem, para que o opcenter entenda que haverá saldo em \"tal\" dia.<br></div><div><br></div><div>***IMPORTANTE - vc vai notar que há na estrutura também o item /0891 na primeira linha com saldo negativo, mas em conversa com a Eng, eles explicaram que o fato do item estar como \"0000\" evita que faça movimentações, já que o item 0000 na estrutura do produto não é cadastrado. Neste caso a regra precisaria entender que o item 0000 da ordem não pode subir como fornecimento, mas os demais sim.</div></body></html>",
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000020687142"
+    },
+    {
+        "ticketNumber": "4278",
+        "subject": "Ajustar folgas revisora e cura do material",
+        "resolution": "Para este chamado a atuação foi a criação de folgas entre os processos de impressão e laminação.\n\nPortanto ajustamos a consulta, para que os tempos encaminhados histórico do chamado, fossem atribuídos para cada tipo de família fert.\n\nQualquer dúvida, estou a disposição.",
+        "description": "<div>Bom dia!</div><div><br></div><div>Pedimos que seja a<span style=\"font-size: 16px; color: rgb(36, 36, 36); font-family: &quot;Aptos Narrow&quot;, Calibri, &quot;sans-serif&quot;, &quot;Mongolian Baiti&quot;, &quot;Microsoft Yi Baiti&quot;, &quot;Javanese Text&quot;, &quot;Yu Gothic&quot;\">justada para fazer funcionar a lógica para folga entre impressão e laminação (revisão) e criar lógica para cura depois da laminação. </span></div><div><br></div><div>Conforme alinhado em agenda presencial.</div><div><br></div><div>Podem nos ajudar?<br>Muito obrigada!</div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000040591830"
     },
     {
         "ticketNumber": "4310",
@@ -714,18 +714,18 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000040903001"
     },
     {
-        "ticketNumber": "4562",
-        "subject": "lead time de serviços tercerizados",
-        "resolution": "Criação de Calendário Primário para recurso de terceiros com off shift no Sábado, Domingo e Feriados solucionou o problema relatado pelo cliente, onde o leadtime de terceiros estava considerando dias corridos e não somente os úteis.",
-        "description": "<div>boa tarde<br></div><div><br></div><div>pedimos que no lead time dos serviços externos, contabilizar apenas os dias uteis ( respeitar sábados, domingos e feriados) para que tenhamos um acompanhamento firme e real dos nossos parceiros&nbsp;<br></div><div>fico a disposição&nbsp;</div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042172001"
-    },
-    {
         "ticketNumber": "4321",
         "subject": "MUDANÇA NA LÓGICA DE ALOCAÇÃO",
         "resolution": "Foi alterado as procedures de BoM, Lista de matériais da Ordem e Lista de matériais do Produto, alterando o Código Requerido para Item Substituto. Para que os itens substitutos continuem na tabela de intes foi alterado a procedure LSB_INT_Itens_Demanda",
         "description": "<div>Senhores, bom dia!<br></div><div><br></div><div>Conforme reunião do dia 09/01, segue solicitação para mudança na lógica de alocação.<br></div><div><br></div><div><b>Planning:&nbsp;</b><span style=\"\">Comprar pelo opcional (Y), não havendo estoque, haverá falta de material.</span></div><div><br></div><div><b>Scheduling:&nbsp;</b><span style=\"\">Programar pelo item opcional (Y).</span></div><div><br></div><div>Quando não tiver flegado o campo de opcional, a compra deverá ocorrer conforme a lista técnica do produto.<br></div><div><br></div><div><br></div><div>Segue arquivo com exemplo detalhado dessa solicitação.<br></div><div><br></div><div><br></div><div>Denis Sena</div><div><br></div>",
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000040965001"
+    },
+    {
+        "ticketNumber": "4562",
+        "subject": "lead time de serviços tercerizados",
+        "resolution": "Criação de Calendário Primário para recurso de terceiros com off shift no Sábado, Domingo e Feriados solucionou o problema relatado pelo cliente, onde o leadtime de terceiros estava considerando dias corridos e não somente os úteis.",
+        "description": "<div>boa tarde<br></div><div><br></div><div>pedimos que no lead time dos serviços externos, contabilizar apenas os dias uteis ( respeitar sábados, domingos e feriados) para que tenhamos um acompanhamento firme e real dos nossos parceiros&nbsp;<br></div><div>fico a disposição&nbsp;</div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042172001"
     },
     {
         "ticketNumber": "4424",
@@ -770,13 +770,6 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000039579220"
     },
     {
-        "ticketNumber": "4556",
-        "subject": "Inclusão de campo TP_SOLDA_COMERCIAL na modelagem de EXTRUSÃO",
-        "resolution": "PASSO A PASSO DA INCLUSÃO DO RELATÓRIO DE CARREGAMENTO DE RECURSOS\n\n(1) Executar a criação da tabela - LSB_APP_Quebra_OP_Quantidades_Periodo\n(2) Executar a criação da ação customizada do Break Bars - (LSB_APP_Quebra_OPP_AddCustomAction\n(3) Criar a Procedure LSB_APP_Quebra_OP\n(4) Criar a Procedure LSB_RPT_Carregamento_Diario\n(5) Criação do PESP LSB_INT_Quebra_Operações\n(6) Configuração da ação personalidade do Break Bars\n",
-        "description": "<div>Por favor incluir o campo&nbsp;TP_SOLDA_COMERCIAL no editor de dados da modelagem de EXTRUSÃO.<br></div><div><br></div><div>Também incluir o relatório CARREGAMENTO POR RECURSO na modelagem de extrusão.<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsnc3ee20e4e35fdbc80e5d4153aac8381f51d5d335db29929da0d50cbb86048eee/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042111005"
-    },
-    {
         "ticketNumber": "4527",
         "subject": "Criar novo usuário Programação 1030 ",
         "resolution": "Usuário foi criado no Desk e o key user já está com acesso",
@@ -784,11 +777,11 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041991001"
     },
     {
-        "ticketNumber": "4449",
-        "subject": "Histórico de Eficiência dos Recursos",
-        "resolution": "A resolução seria esta: Poderíamos criar uma tabela no banco de dados que guarde essas informações (caso tenha alguma alteração na eficiência) e disponibilizada através de um relatório.\nNão conseguiríamos buscar as eficiências passadas, porém teríamos o histórico do momento da implantação em diante.\nPorém por não ter pacote de suporte contendo melhoria, foi optado por não seguir com esta tratativa.",
-        "description": "<div>Bom dia, Pessoal,<br></div><div><br></div><div>Existem alguma forma, por padrão, de verificar o histórico de alterações das eficiências dos recursos?<br></div><div><br></div><div>Eu tenho conhecimento de que é uma tabela que não tem dataset associado, mas existe alguma outra alternativa para analisar as modificações?<br></div><div><br></div><div>E o que sugerem a se fazer pra registrar essas modificações?<br></div><div><br></div><div>Abraços,</div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041588045"
+        "ticketNumber": "4556",
+        "subject": "Inclusão de campo TP_SOLDA_COMERCIAL na modelagem de EXTRUSÃO",
+        "resolution": "PASSO A PASSO DA INCLUSÃO DO RELATÓRIO DE CARREGAMENTO DE RECURSOS\n\n(1) Executar a criação da tabela - LSB_APP_Quebra_OP_Quantidades_Periodo\n(2) Executar a criação da ação customizada do Break Bars - (LSB_APP_Quebra_OPP_AddCustomAction\n(3) Criar a Procedure LSB_APP_Quebra_OP\n(4) Criar a Procedure LSB_RPT_Carregamento_Diario\n(5) Criação do PESP LSB_INT_Quebra_Operações\n(6) Configuração da ação personalidade do Break Bars\n",
+        "description": "<div>Por favor incluir o campo&nbsp;TP_SOLDA_COMERCIAL no editor de dados da modelagem de EXTRUSÃO.<br></div><div><br></div><div>Também incluir o relatório CARREGAMENTO POR RECURSO na modelagem de extrusão.<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsnc3ee20e4e35fdbc80e5d4153aac8381f51d5d335db29929da0d50cbb86048eee/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042111005"
     },
     {
         "ticketNumber": "4437",
@@ -796,6 +789,13 @@
         "resolution": "O erro estava na LSB_INT_Tratamento_Extrusão, onde passamos a deixar de receber um campo na tabela que esta view consultava e passamos a receber em outra. Ajustando a consulta, o erro foi sanado.",
         "description": "<div><div>Erro de integração ao importar dados.</div><div>&nbsp;</div></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsna0de119960301258513f3333239af4b4c3e6c24b76ec28e73ee386cbf7cf99d2/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div>",
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041484321"
+    },
+    {
+        "ticketNumber": "4449",
+        "subject": "Histórico de Eficiência dos Recursos",
+        "resolution": "A resolução seria esta: Poderíamos criar uma tabela no banco de dados que guarde essas informações (caso tenha alguma alteração na eficiência) e disponibilizada através de um relatório.\nNão conseguiríamos buscar as eficiências passadas, porém teríamos o histórico do momento da implantação em diante.\nPorém por não ter pacote de suporte contendo melhoria, foi optado por não seguir com esta tratativa.",
+        "description": "<div>Bom dia, Pessoal,<br></div><div><br></div><div>Existem alguma forma, por padrão, de verificar o histórico de alterações das eficiências dos recursos?<br></div><div><br></div><div>Eu tenho conhecimento de que é uma tabela que não tem dataset associado, mas existe alguma outra alternativa para analisar as modificações?<br></div><div><br></div><div>E o que sugerem a se fazer pra registrar essas modificações?<br></div><div><br></div><div>Abraços,</div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041588045"
     },
     {
         "ticketNumber": "4552",
@@ -819,18 +819,18 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042099057"
     },
     {
-        "ticketNumber": "4541",
-        "subject": "Troca da Senha",
-        "resolution": "Foi verificado os ambiente QA e PROD e o serviço estão rodando normalmente após a troca da senha.",
-        "description": "<div style=\"direction: ltr; font-size: 13px; font-family: Arial, Helvetica, sans-serif\"><div>Validação do serviço de integração após a troca da senha da conta&nbsp;<span style=\"font-family: &quot;gg sans&quot;, &quot;Noto Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 16px\">w99sm570</span></div></div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042103001"
-    },
-    {
         "ticketNumber": "4536",
         "subject": "Erro de importação",
         "resolution": "Havia um ponto no csv de ordens na coluna OpNo, ocasionando no erro",
         "description": "<div style=\"direction: ltr; font-size: 13px; font-family: Arial, Helvetica, sans-serif\"><div>Ocorreu um ou mais erros ao importar 'TROIKA - Importar Taxa Recurso'.<br></div><div><br></div><div>&nbsp;Falha ao converter o nvarchar valor '.' para o tipo de dados int.</div></div>",
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042063001"
+    },
+    {
+        "ticketNumber": "4255",
+        "subject": "Manter Atribuição",
+        "resolution": "O cliente pediu para adicionar recursos fora do grupo de recurso como opções, neste caso realizamos uma tratativa na view LSB_INT_Grupos_Recursos_Recursos para adicionar esta exceção.",
+        "description": "<div>Boa tarde, estamos com uma dúvida se é possível mudar um conceito.<br></div><div><br></div><div>Imagine que temos um trabalho de conferência aonde preciso que o João faça, mas o João é editor e não é da conferência oficialmente, porém preciso que ele faça apenas esse ou alguns trabalhos específicos que eu atribuir.<br></div><div><br></div><div>Hoje se atribuímos no Sappi um trabalho de conferência para um editor e importamos no Opcenter e programamos, o trabalho sai desse pessoa atribuída e vai para outro que é de conferência.<br></div><div><br></div><div>Tem como mudarmos a configuração para forçar manter o recurso alocado, mesmo que ele não pertença a este grupo de recursos, como no exemplo mencionado?<br></div><div><br></div><div>Se não ficou claro, podemos bater um papo para explicar a demanda/situação.<br></div><div><br></div><div>Att. Alex.</div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000040324001"
     },
     {
         "ticketNumber": "4535",
@@ -840,11 +840,11 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041981138"
     },
     {
-        "ticketNumber": "4255",
-        "subject": "Manter Atribuição",
-        "resolution": "O cliente pediu para adicionar recursos fora do grupo de recurso como opções, neste caso realizamos uma tratativa na view LSB_INT_Grupos_Recursos_Recursos para adicionar esta exceção.",
-        "description": "<div>Boa tarde, estamos com uma dúvida se é possível mudar um conceito.<br></div><div><br></div><div>Imagine que temos um trabalho de conferência aonde preciso que o João faça, mas o João é editor e não é da conferência oficialmente, porém preciso que ele faça apenas esse ou alguns trabalhos específicos que eu atribuir.<br></div><div><br></div><div>Hoje se atribuímos no Sappi um trabalho de conferência para um editor e importamos no Opcenter e programamos, o trabalho sai desse pessoa atribuída e vai para outro que é de conferência.<br></div><div><br></div><div>Tem como mudarmos a configuração para forçar manter o recurso alocado, mesmo que ele não pertença a este grupo de recursos, como no exemplo mencionado?<br></div><div><br></div><div>Se não ficou claro, podemos bater um papo para explicar a demanda/situação.<br></div><div><br></div><div>Att. Alex.</div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000040324001"
+        "ticketNumber": "4541",
+        "subject": "Troca da Senha",
+        "resolution": "Foi verificado os ambiente QA e PROD e o serviço estão rodando normalmente após a troca da senha.",
+        "description": "<div style=\"direction: ltr; font-size: 13px; font-family: Arial, Helvetica, sans-serif\"><div>Validação do serviço de integração após a troca da senha da conta&nbsp;<span style=\"font-family: &quot;gg sans&quot;, &quot;Noto Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 16px\">w99sm570</span></div></div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000042103001"
     },
     {
         "ticketNumber": "4465",
@@ -882,11 +882,11 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041973001"
     },
     {
-        "ticketNumber": "4474",
-        "subject": "Ao atualizar as ordens no Schedulle, as mesmas somem no sistema de Manaus",
-        "resolution": "Para este chamado tivemos problemas com integração de dados entre o ERP e o APS.\n\nFoi direcionado ao time TI Valgroup, para que seja feito a validação da escrita do dado.\nDurante a análise time TI reportou problemas no campo CMV002, após as tratativas, voltamos a receber as informações na tabela do banco de dados IO.",
-        "description": "<div>quando faço importação e vou para o Gerar a programação, some as ordens. Carga no TOTVS ok.<br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsnf898fd82bf7d862361bdd07021dcc93d77b6f6e0ebddf216aa50553947ecb325/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041722561"
+        "ticketNumber": "4514",
+        "subject": "[SAP] Homologação para Produção - Manaus - 11/02/2025",
+        "resolution": "Foi corrigido o CREATE para ALTER na query, a query já existia no banco de dados mas no GIT estava com CREATE ao invés de ALTER, desta forma dando erro ao realizar a alteração.",
+        "description": "<div>Senhores,<br></div><div>Para a subida de Homologação para Produção - Manaus em 11/02/2025, tivemos os seguintes erros:<br></div><div><br></div><div><span style=\"color: rgb(255, 255, 255); font-family: Menlo, &quot;DejaVu Sans Mono&quot;, &quot;Liberation Mono&quot;, Consolas, &quot;Ubuntu Mono&quot;, &quot;Courier New&quot;, &quot;andale mono&quot;, &quot;lucida console&quot;, monospace; font-size: 13px; background-color: rgb(17, 17, 17)\">Changed database context to 'OPCENTER_PL_AM_SAP'. Msg 2714, Level 16, State 3, Server mns-opcenter-01\\SQLPROD, Procedure LSB_RPT_Analise_Compras, Line 2 There is already an object named 'LSB_RPT_Analise_Compras' in the database.</span></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn7dcd44664e318107d1f4acb4bc3adf41ad8355fe9a3eea657262d596f09cc832/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div><br></div><div><span style=\"color: rgb(255, 255, 255); font-family: Menlo, &quot;DejaVu Sans Mono&quot;, &quot;Liberation Mono&quot;, Consolas, &quot;Ubuntu Mono&quot;, &quot;Courier New&quot;, &quot;andale mono&quot;, &quot;lucida console&quot;, monospace; font-size: 13px; background-color: rgb(17, 17, 17)\">Changed database context to 'OPCENTER_SC_FINO_AM_SAP'. Msg 2714, Level 16, State 3, Server mns-opcenter-01\\SQLPROD, Procedure INT_Log_ferramentas, Line 3 There is already an object named 'INT_Log_ferramentas' in the database.<br></span></div><div><span style=\"color: rgb(255, 255, 255); font-family: Menlo, &quot;DejaVu Sans Mono&quot;, &quot;Liberation Mono&quot;, Consolas, &quot;Ubuntu Mono&quot;, &quot;Courier New&quot;, &quot;andale mono&quot;, &quot;lucida console&quot;, monospace; font-size: 13px; background-color: rgb(17, 17, 17)\"><br></span></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn7dcd44664e318107d1f4acb4bc3adf4122419073e0031410766c758fbbc66ebc/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041931158"
     },
     {
         "ticketNumber": "4518",
@@ -896,11 +896,11 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041907412"
     },
     {
-        "ticketNumber": "4514",
-        "subject": "[SAP] Homologação para Produção - Manaus - 11/02/2025",
-        "resolution": "Foi corrigido o CREATE para ALTER na query, a query já existia no banco de dados mas no GIT estava com CREATE ao invés de ALTER, desta forma dando erro ao realizar a alteração.",
-        "description": "<div>Senhores,<br></div><div>Para a subida de Homologação para Produção - Manaus em 11/02/2025, tivemos os seguintes erros:<br></div><div><br></div><div><span style=\"color: rgb(255, 255, 255); font-family: Menlo, &quot;DejaVu Sans Mono&quot;, &quot;Liberation Mono&quot;, Consolas, &quot;Ubuntu Mono&quot;, &quot;Courier New&quot;, &quot;andale mono&quot;, &quot;lucida console&quot;, monospace; font-size: 13px; background-color: rgb(17, 17, 17)\">Changed database context to 'OPCENTER_PL_AM_SAP'. Msg 2714, Level 16, State 3, Server mns-opcenter-01\\SQLPROD, Procedure LSB_RPT_Analise_Compras, Line 2 There is already an object named 'LSB_RPT_Analise_Compras' in the database.</span></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn7dcd44664e318107d1f4acb4bc3adf41ad8355fe9a3eea657262d596f09cc832/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"></div><div><br></div><div><br></div><div><span style=\"color: rgb(255, 255, 255); font-family: Menlo, &quot;DejaVu Sans Mono&quot;, &quot;Liberation Mono&quot;, Consolas, &quot;Ubuntu Mono&quot;, &quot;Courier New&quot;, &quot;andale mono&quot;, &quot;lucida console&quot;, monospace; font-size: 13px; background-color: rgb(17, 17, 17)\">Changed database context to 'OPCENTER_SC_FINO_AM_SAP'. Msg 2714, Level 16, State 3, Server mns-opcenter-01\\SQLPROD, Procedure INT_Log_ferramentas, Line 3 There is already an object named 'INT_Log_ferramentas' in the database.<br></span></div><div><span style=\"color: rgb(255, 255, 255); font-family: Menlo, &quot;DejaVu Sans Mono&quot;, &quot;Liberation Mono&quot;, Consolas, &quot;Ubuntu Mono&quot;, &quot;Courier New&quot;, &quot;andale mono&quot;, &quot;lucida console&quot;, monospace; font-size: 13px; background-color: rgb(17, 17, 17)\"><br></span></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn7dcd44664e318107d1f4acb4bc3adf4122419073e0031410766c758fbbc66ebc/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041931158"
+        "ticketNumber": "4474",
+        "subject": "Ao atualizar as ordens no Schedulle, as mesmas somem no sistema de Manaus",
+        "resolution": "Para este chamado tivemos problemas com integração de dados entre o ERP e o APS.\n\nFoi direcionado ao time TI Valgroup, para que seja feito a validação da escrita do dado.\nDurante a análise time TI reportou problemas no campo CMV002, após as tratativas, voltamos a receber as informações na tabela do banco de dados IO.",
+        "description": "<div>quando faço importação e vou para o Gerar a programação, some as ordens. Carga no TOTVS ok.<br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsnf898fd82bf7d862361bdd07021dcc93d77b6f6e0ebddf216aa50553947ecb325/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041722561"
     },
     {
         "ticketNumber": "4498",
@@ -973,18 +973,18 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000039740186"
     },
     {
-        "ticketNumber": "4458",
-        "subject": "Erro durante integração",
-        "resolution": "A regra de alocação estava com um filtro de expressão para Demanda Interna exatamente como o seguinte: \n(~ABAST~ @ {$Operation Name})\n\nquando o correto era: \n\n(~ABAST~ @ ~{$Operation Name}~)\n\nAssim, nós conseguimos garantir que as análises do tipo contém no @ estão devidamente sendo feitas pela regra de alocação. \n",
-        "description": "<div>Mensagem de erro durante a integração conforme exemplos nas imagens em anexo.</div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041708007"
-    },
-    {
         "ticketNumber": "4493",
         "subject": "Faltando uma licença",
         "resolution": "Entrei no servidor e fechei o opcenter",
         "description": "<div>Bom dia!<br></div><div><br></div><div>Pessoal, podem verificar se ficou alguma modelagem ou licença presa?<br></div><div><br></div><div>Estamos conseguindo acessar 3 PRD mas apenas 1 viewer</div>",
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041816001"
+    },
+    {
+        "ticketNumber": "4458",
+        "subject": "Erro durante integração",
+        "resolution": "A regra de alocação estava com um filtro de expressão para Demanda Interna exatamente como o seguinte: \n(~ABAST~ @ {$Operation Name})\n\nquando o correto era: \n\n(~ABAST~ @ ~{$Operation Name}~)\n\nAssim, nós conseguimos garantir que as análises do tipo contém no @ estão devidamente sendo feitas pela regra de alocação. \n",
+        "description": "<div>Mensagem de erro durante a integração conforme exemplos nas imagens em anexo.</div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041708007"
     },
     {
         "ticketNumber": "4485",
@@ -994,18 +994,18 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041805603"
     },
     {
-        "ticketNumber": "4481",
-        "subject": "Data de Entrega das ordens de produção",
-        "resolution": "A resolução deste chamado consistiu em revisar os passos de importação e entender como era o cálculo da data de entrega e alterar de forma que tenham o mesmo valor da data de entrega dos pedidos mais críticos. Além disso, já ajustei o preenchimento do campo MTO/MTS para que o \"MTS\" seja levado somente para as ordens que não tiveram vinculo com pedido.\n\nFLUXO ANTES DAS ALTERAÇÕES:\n\n- LSB_UPD_Data_MTO_Acabado: Preenche o campo como MTO para as ordens que fornecem para uma ordem de venda.\nQuestionamento: Todas as ordens atendem diretamente um pedido?\n- LSB_UPD_Data_MTS_Acabado: Para Salto não faz sentido porque não é para ter ordens MTS\nQuestionamento válido para a análise da lógica de Santana: Como deve ser o cálculo da quantidade? Hoje eu estou considerando a soma das ordens ou apenas a maior quantidade? \n- LSB_INT_Ordem_MTO_MTS: leva as informações das procedures anteriores para o opcenter\n- LSB_UPD_DataDemanda_VinculoPedido_V2: atualiza a data de entrega das ordens com a data mais critica do pedido linkado a ela, porém a procedure é imensa, hoje já temos versões bem mais ágeis.\n- LSB_UPD_Data_Semiacabado_MTS: Faz algo parecido com a procedure anterior, mas apenas com as ordens MTS\n\nFLUXO APÓS AS MUDANÇAS\n\n- LSB_UPD_ORDENS_MTO\n- LSB_UPD_Ordens_MTS\n\nAlém da troca das procedures, retirei os seguintes passos também:\n- LSB_AUX_Ordem_Pedido_Crítico\n- LSB_UPD_Cobertura\n- LSB_UPD_Limpa_MTO_MTS\n\nApaguei as seguintes procedures do banco:\nDROP PROCEDURE LSB_UPD_Data_Semiacabado_MTS\nDROP PROCEDURE LSB_UPD_DataDemanda_VinculoPedido\nDROP PROCEDURE LSB_UPD_DataDemanda_VinculoPedido_V2\nDROP PROCEDURE LSB_UPD_Cobertura\nDROP PROCEDURE LSB_UPD_Limpa_MTO_MTS\nDROP PROCEDURE LSB_UPD_Data_MTO_Acabado\nDROP PROCEDURE LSB_UPD_Data_MTS_Acabado",
-        "description": "<div>Ação criada durante visita presencial...</div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041805001"
-    },
-    {
         "ticketNumber": "4480",
         "subject": "Funcionalidade de Restaurar Dados Iniciais",
         "resolution": "A view LSB_INT_VIW_ORDENS_autoseq sofreu uma alteração de contagem de datas na seguinte condicional: \n\tAND CAST(ISNULL(OP.DATA_ENTREGA,GETDATE()) AS DATETIME) >= (GETDATE() - 30) -> onde era 30, agora é 120. ",
         "description": "<div style=\"direction: ltr; font-size: 13px; font-family: Arial, Helvetica, sans-serif\"><div>Olá,<br></div><div><br></div><div>Eu, Leonardo, estou abrindo este ticket em nome da LSB para documentar o problema e a ação dentro do ambiente de INPLASUL.<br></div><div><br></div><div>Ao retornar os dados iniciais da programação, o Opcenter não estava retornando a informação de \"Extrusão Finalizada?\" dentro das informações da Ordem.&nbsp;<br></div><div><br></div><div>Abraço!&nbsp;</div></div>",
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041801001"
+    },
+    {
+        "ticketNumber": "4481",
+        "subject": "Data de Entrega das ordens de produção",
+        "resolution": "A resolução deste chamado consistiu em revisar os passos de importação e entender como era o cálculo da data de entrega e alterar de forma que tenham o mesmo valor da data de entrega dos pedidos mais críticos. Além disso, já ajustei o preenchimento do campo MTO/MTS para que o \"MTS\" seja levado somente para as ordens que não tiveram vinculo com pedido.\n\nFLUXO ANTES DAS ALTERAÇÕES:\n\n- LSB_UPD_Data_MTO_Acabado: Preenche o campo como MTO para as ordens que fornecem para uma ordem de venda.\nQuestionamento: Todas as ordens atendem diretamente um pedido?\n- LSB_UPD_Data_MTS_Acabado: Para Salto não faz sentido porque não é para ter ordens MTS\nQuestionamento válido para a análise da lógica de Santana: Como deve ser o cálculo da quantidade? Hoje eu estou considerando a soma das ordens ou apenas a maior quantidade? \n- LSB_INT_Ordem_MTO_MTS: leva as informações das procedures anteriores para o opcenter\n- LSB_UPD_DataDemanda_VinculoPedido_V2: atualiza a data de entrega das ordens com a data mais critica do pedido linkado a ela, porém a procedure é imensa, hoje já temos versões bem mais ágeis.\n- LSB_UPD_Data_Semiacabado_MTS: Faz algo parecido com a procedure anterior, mas apenas com as ordens MTS\n\nFLUXO APÓS AS MUDANÇAS\n\n- LSB_UPD_ORDENS_MTO\n- LSB_UPD_Ordens_MTS\n\nAlém da troca das procedures, retirei os seguintes passos também:\n- LSB_AUX_Ordem_Pedido_Crítico\n- LSB_UPD_Cobertura\n- LSB_UPD_Limpa_MTO_MTS\n\nApaguei as seguintes procedures do banco:\nDROP PROCEDURE LSB_UPD_Data_Semiacabado_MTS\nDROP PROCEDURE LSB_UPD_DataDemanda_VinculoPedido\nDROP PROCEDURE LSB_UPD_DataDemanda_VinculoPedido_V2\nDROP PROCEDURE LSB_UPD_Cobertura\nDROP PROCEDURE LSB_UPD_Limpa_MTO_MTS\nDROP PROCEDURE LSB_UPD_Data_MTO_Acabado\nDROP PROCEDURE LSB_UPD_Data_MTS_Acabado",
+        "description": "<div>Ação criada durante visita presencial...</div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041805001"
     },
     {
         "ticketNumber": "4478",
@@ -1029,18 +1029,18 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000040387013"
     },
     {
-        "ticketNumber": "4038",
-        "subject": "Material pendente da Ordem de Serviço não aparece no Material Explorer",
-        "resolution": "Foi ajustado o cadastro do lado da Fockink para não mais ignorar os materiais pendentes de Ordens da AF3 com Requisição de Material gerada.",
-        "description": "<div><br></div><div>&nbsp;Bom dia !!!<br></div><div><br></div><div>&nbsp;Favor verificar:<br></div><div>material pendente da Ordem de Serviço não aparece no Material Explorer...<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn80cc506eaa36836ce849a136acd38b2eec3ea9bd257d08b021e84e90e72af36f/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn80cc506eaa36836ce849a136acd38b2eafac486a43278841053cb58383ca4afa/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div><div><br></div><div>&nbsp;Backup adicionado a pasta compartilhada.<br></div><div>&nbsp;<br></div><div>&nbsp;Atte.,</div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000038447390"
-    },
-    {
         "ticketNumber": "4425",
         "subject": "[SAP] C2501-5258 - Co-produto secundário com falta SC Componentes",
         "resolution": "Para solucionar o chamado, foi necessário criar as views que alimentam as tabelas de co-produto do Opcenter, criar os PIOs e adicioná-los no PESP de importação.\n\nComo na Intelbras há fornecimentos entre modelagens diferentes, também foi necessário ajustar as views de demandas e fornecimentos para garantir que os co-produtos da modelagem de componentes estejam presentes como fornecimentos na modelagem de montagem.",
         "description": "<div>Vagner reporta:<br></div><div><br></div><div><div>O time PCP (Thiago Moreira) reportou que teve material coproduto secundário apresentando falta na modelagem SC Fino componentes, porém observando o item coproduto principal, temos ordens de produção&nbsp; e estas não estão entrando como fornecimento para o coproduto secundário gerando falta.<br></div><div><span style=\"\"><br></span></div><div><span style=\"\">Vide evidências.&nbsp;<br></span></div></div>",
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041454584"
+    },
+    {
+        "ticketNumber": "4038",
+        "subject": "Material pendente da Ordem de Serviço não aparece no Material Explorer",
+        "resolution": "Foi ajustado o cadastro do lado da Fockink para não mais ignorar os materiais pendentes de Ordens da AF3 com Requisição de Material gerada.",
+        "description": "<div><br></div><div>&nbsp;Bom dia !!!<br></div><div><br></div><div>&nbsp;Favor verificar:<br></div><div>material pendente da Ordem de Serviço não aparece no Material Explorer...<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn80cc506eaa36836ce849a136acd38b2eec3ea9bd257d08b021e84e90e72af36f/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn80cc506eaa36836ce849a136acd38b2eafac486a43278841053cb58383ca4afa/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div><div><br></div><div>&nbsp;Backup adicionado a pasta compartilhada.<br></div><div>&nbsp;<br></div><div>&nbsp;Atte.,</div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000038447390"
     },
     {
         "ticketNumber": "4471",
@@ -1071,18 +1071,18 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041563003"
     },
     {
-        "ticketNumber": "4435",
-        "subject": "ERRO IMPORTAÇÃO PASSO 2",
-        "resolution": "O erro estava na view  de Lista Técnica da Ordem, porém ao acessar o banco de dados e rodar a consulta, nenhum erro foi gerado, assim como no Opcenter.",
-        "description": "<div>Bom dia<br></div><div>Realizei pela manha a 2x o passo 2 e tivemos este erro , poderia verificar?</div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn496b48eb06d0479df4726f915237e5302faf64d29d732481faee9f557d401717/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041510285"
-    },
-    {
         "ticketNumber": "4442",
         "subject": "Erro:  System.Reflection.TargetinvocationExecption",
         "resolution": "Havia um erro na função ActualScheduleHandler do Engine que não encontrava um item que tem Actual Schedule, mas não tem demanda dentro da tabela do planejador. \n\nResolvemos colocando uma condição de nulidade no código fonte do projeto do engine: \n\n        private ExtraStock ActualScheduleHandler(PrImportedStocks.Tbl item)\n        {\n            int locked = 0;\n            var demand = prDemands.FirstOrDefault(x => x.DemandDate == item.ProdnDate && x.ParentPart == \"PARENT\");\n\n            if (demand != null)\n            {\n                locked = demand.Locked;\n            }\n            else\n            {\n                locked = 0; // ou outro valor padrão que seja adequado\n            }\n            if (locked == 1)\n                return new ExtraStock(item.ItemCode, item.ProdnDate, 0);\n            else\n                return new ExtraStock(item.ItemCode, item.ProdnDate, item.Qty);\n        }",
         "description": "<div>Erro:&nbsp; System.Reflection.TargetinvocationExecption<br></div><div><br></div><div>Log de erro em anexo<br></div><div>Backup da OPCenter PL compartilhado via OneDrive</div>",
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041540007"
+    },
+    {
+        "ticketNumber": "4435",
+        "subject": "ERRO IMPORTAÇÃO PASSO 2",
+        "resolution": "O erro estava na view  de Lista Técnica da Ordem, porém ao acessar o banco de dados e rodar a consulta, nenhum erro foi gerado, assim como no Opcenter.",
+        "description": "<div>Bom dia<br></div><div>Realizei pela manha a 2x o passo 2 e tivemos este erro , poderia verificar?</div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn496b48eb06d0479df4726f915237e5302faf64d29d732481faee9f557d401717/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041510285"
     },
     {
         "ticketNumber": "4436",
@@ -1134,6 +1134,13 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041197242"
     },
     {
+        "ticketNumber": "4301",
+        "subject": "Matriz de restrição de recursos para novos valores",
+        "resolution": "A necessidade da Inplasul era que, quando adicionassem novos diâmetros de camisas, por padrão, toda a linha de matriz de recurso válido venha desativada. Para isso bastou alterar essa parte do TDF dentro da tabela de atributos:\n   Valid Resources,1,MATRIX   TOGGLE, --------- Trocar para \"0\"\n      HELPPOPUPID (6110)\n      AUTO DIMENSION(,Attribute 5(Name),\n         ,Resources(Display Name))\n      AUTO SEQ RESTRICT\n      RESOURCE MASK: ",
+        "description": "<div>boa tarde! para novos valores na matriz de recursos, devemos bloquear para todos os recursos. Hoje novos valores entram como liberados para os recursos, atrapalhando o sequenciamento.</div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000040787001"
+    },
+    {
         "ticketNumber": "4256",
         "subject": "Erro de Importação",
         "resolution": "A procedure LSB_INT_LIBERA_CS_PROC faz referência ao atributo 43 que, na modelagem de impressão, contem as informações acerca das Operações. Inclusive essa tabela fica separada dos demais atributos e não vai para a tabela de ordens.\n\nO problema aconteceu por conta de outro chamado (#4175) em que era necessário levar a informação de \"Tipo Solda Comercial\" e foi utilizado o mesmo atributo - erro de configuração.\n\nO problema se resolveu ao voltar a alteração feita e manter o atributo 43 destinado às operações. Além disso,  o campo que contem as informações sobre Tipo Solda Comercial foi levado ao atributo 39, que não estava sendo utilizado na modelagem.",
@@ -1155,11 +1162,11 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000040823003"
     },
     {
-        "ticketNumber": "4301",
-        "subject": "Matriz de restrição de recursos para novos valores",
-        "resolution": "A necessidade da Inplasul era que, quando adicionassem novos diâmetros de camisas, por padrão, toda a linha de matriz de recurso válido venha desativada. Para isso bastou alterar essa parte do TDF dentro da tabela de atributos:\n   Valid Resources,1,MATRIX   TOGGLE, --------- Trocar para \"0\"\n      HELPPOPUPID (6110)\n      AUTO DIMENSION(,Attribute 5(Name),\n         ,Resources(Display Name))\n      AUTO SEQ RESTRICT\n      RESOURCE MASK: ",
-        "description": "<div>boa tarde! para novos valores na matriz de recursos, devemos bloquear para todos os recursos. Hoje novos valores entram como liberados para os recursos, atrapalhando o sequenciamento.</div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000040787001"
+        "ticketNumber": "4342",
+        "subject": "Erro ao abrir OPcenter da Extrusão MG e ao importar dados",
+        "resolution": "Para esse caso, a resolução foi levantar todas as ordens geradas e encaminhar para time Valgroup, pois existia duplicidade em ordens geradas. \n\nOu seja a  mesma ordem planejada, com duas ordens firmes.\n\nAo encaminhar a relação de ordens e  o time Valgroup encerrar essas ordens duplicadas, o problema foi resolvido e a modelagem estabilizada.\n\nAtt,",
+        "description": "<div>O colaborador responsável por operar o OPcenter na unidade MG8 nos comunicou sobre os erros que estão aparecendo tanto ao abrir a tela inicial quanto ao importar dados. Alertou também sobre itens iguais com ordens diferentes.<br></div><div><br></div><div>Seguem evidências:<br></div><div><br></div><div>Erro ao abrir tela inicial:<br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn9ba61aeeda3a0189527518bc2ff4ba27b21042a27203cee9ac49806d8d823b25/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn9ba61aeeda3a0189527518bc2ff4ba2791a9194797be74d588d1dd7c4ae3d762/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div><div><br></div><div>Erro das OPs:<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn9ba61aeeda3a0189527518bc2ff4ba27cff9c51cdb0de110a0bd7f1fec48264a/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn9ba61aeeda3a0189527518bc2ff4ba273663d105867b9bc5924278475ea257ec/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn9ba61aeeda3a0189527518bc2ff4ba279e944ef5e8c3f76750bc4014d58a5cc5/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div><div><br></div><div>Obrigada!</div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041050011"
     },
     {
         "ticketNumber": "4313",
@@ -1167,13 +1174,6 @@
         "resolution": "Mudança na procedure LSB_INT_ERP_PREACTOR_GRUPO_RECURSOS:\nExistia um passo que restringia os produtos que não tinham recurso válido no atributo \"Grupo Fórmula\". Essa condição fazia parte de um processo/metodologia antiga da Inplasul. Desativando essa etapa da procedure, o problema tratado no chamado foi solucionado.",
         "description": "<div>OPs na modelagem de extrusão estão sem grupo de recursos válidos, não permitindo o sequenciamento automático das OPs no gantt.</div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsnd56ae6b7febb631fea8001e411f5603bc0d156a88749c49773368e055caf3447/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div>",
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000040921003"
-    },
-    {
-        "ticketNumber": "4342",
-        "subject": "Erro ao abrir OPcenter da Extrusão MG e ao importar dados",
-        "resolution": "Para esse caso, a resolução foi levantar todas as ordens geradas e encaminhar para time Valgroup, pois existia duplicidade em ordens geradas. \n\nOu seja a  mesma ordem planejada, com duas ordens firmes.\n\nAo encaminhar a relação de ordens e  o time Valgroup encerrar essas ordens duplicadas, o problema foi resolvido e a modelagem estabilizada.\n\nAtt,",
-        "description": "<div>O colaborador responsável por operar o OPcenter na unidade MG8 nos comunicou sobre os erros que estão aparecendo tanto ao abrir a tela inicial quanto ao importar dados. Alertou também sobre itens iguais com ordens diferentes.<br></div><div><br></div><div>Seguem evidências:<br></div><div><br></div><div>Erro ao abrir tela inicial:<br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn9ba61aeeda3a0189527518bc2ff4ba27b21042a27203cee9ac49806d8d823b25/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn9ba61aeeda3a0189527518bc2ff4ba2791a9194797be74d588d1dd7c4ae3d762/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div><div><br></div><div>Erro das OPs:<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn9ba61aeeda3a0189527518bc2ff4ba27cff9c51cdb0de110a0bd7f1fec48264a/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn9ba61aeeda3a0189527518bc2ff4ba273663d105867b9bc5924278475ea257ec/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn9ba61aeeda3a0189527518bc2ff4ba279e944ef5e8c3f76750bc4014d58a5cc5/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div><div><br></div><div>Obrigada!</div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000041050011"
     },
     {
         "ticketNumber": "4270",
@@ -1202,6 +1202,13 @@
         "resolution": "A solução deste ticket foi adicionar a condicional \n\"WHERE B.codigo_material_pai <> B.codigo_material_filho\"\ndentro da view \"lsb_int_bom_ordem\"",
         "description": "<div>Boa tarde!<br>Tudo bem?</div><div><br></div><div><br></div><div>Conforme informado na agenda presencial estamos com a mensagem de erro da print em anexo.<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsne2425442a29f437ab3dccde4e866f378e549b265f467bfbc613a3802bc8bef47/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" alt=\"\"></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsne2425442a29f437ab3dccde4e866f37826514c4c9bd6c748c271c5222e9da472/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" alt=\"\"></div>",
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000040600007"
+    },
+    {
+        "ticketNumber": "4248",
+        "subject": "Erro no OPcenter não consigo acesso.",
+        "resolution": "Teste",
+        "description": "<div>Bom dia!<br></div><div>Favor verificar erro no Opcenter, não estamos conseguindo acesso. Já fizemos varias tentativas.<br></div><div><br></div><div>Segue erro<br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsn9d729182f67d0af1551604c6607a3fc0482a44d772f2e80c74cf0601fcf6927b/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div><div><br></div><div>No Aguardo.</div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000040235005"
     },
     {
         "ticketNumber": "4168",
