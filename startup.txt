@@ -1,0 +1,8 @@
+:: Create Python virtual environment
+IF NOT EXIST "%HOME%\site\wwwroot\env" (
+  python -m venv "%HOME%\site\wwwroot\env"
+)
+
+:: Activate virtual environment and install requirements
+call "%HOME%\site\wwwroot\env\Scripts\activate.bat"
+pip install -r "%HOME%\site\wwwroot\requirements.txt" 

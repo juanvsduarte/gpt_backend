@@ -518,6 +518,10 @@ def chat():
             time.sleep(2)
     return jsonify({"erro": "Não foi possível obter a resposta"}), 500
 
+@app.route('/test', methods=['GET'])
+def test():
+    return jsonify({"status": "success", "message": "API is running"})
+
 # --------------------------
 # Inicialização Única e Permanência Online
 # --------------------------
