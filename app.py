@@ -13,6 +13,9 @@ import threading
 # Load environment variables
 load_dotenv()
 
+# Initialize OpenAI client
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
 # Credenciais OpenAI
 API_KEY = os.getenv("OPENAI_API_KEY")
 
@@ -472,7 +475,9 @@ def create_thread():
 # --------------------------
 # Servidor Flask para API de Chat
 # --------------------------
-client = OpenAI(api_key=API_KEY)
+
+# Configuração da API Key do OpenAI
+
 app = Flask(__name__)
 CORS(app, resources={
     r"/chat": {
