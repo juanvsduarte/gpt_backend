@@ -394,83 +394,59 @@ def create_vector_store(file_ids):
         exit(1)
 
 def create_assistant(vector_store_id):
-    assistant_url = "https://api.openai.com/v1/assistants"
-    instructions_text = (
-        "A Lean Scheduling Brasil (LSB) é uma empresa brasileira especializada em soluções de planejamento e programação da produção para indústrias. "
-        "Ela se destaca por aplicar princípios de Lean Manufacturing e ferramentas avançadas de otimização para ajudar empresas a melhorar o fluxo de produção, reduzir desperdícios e aumentar a eficiência. "
-        "A LSB trabalha principalmente com ferramentas de Advanced Planning and Scheduling (APS) que facilitam o planejamento detalhado e a gestão de atividades nas linhas de produção, "
-        "alinhando demanda e capacidade de forma otimizada. Eles oferecem serviços como consultoria, implementação de sistemas, treinamentos e softwares especializados em Lean Manufacturing, "
-        "especialmente em setores que têm alta variabilidade e demanda por personalização na produção. "
-        "Dentro da LSB, temos uma área de Customer Success, onde os clientes recorrem para solucionar problemas e implementar melhorias em suas soluções, através da abertura de tickets no Zoho Desk. "
-        "Nesta área atuam consultores, em sua maioria, mais juniors, que não possuem tanta experiência. Para auxiliá-los a ter um melhor direcionamento acerca do caminho para o desenvolvimento de um Ticket, "
-        "estamos criando um assistente que, com base no histórico de tickets e documentações técnicas das soluções, sugere um caminho inicial para o atendimento da demanda. "
-        "O assistente será implementado dentro das extensões do Zoho Desk e será acionado pelos consultores para direcionamento do desenvolvimento do Ticket. "
-        "Como resposta, esperamos que o assistente informe de forma resumida o assunto do ticket exibido na tela e qual a forma ideal de resolução do mesmo, apontando em quais partes da solução devemos atuar, "
-        "com base nas documentações técnicas fornecidas. "
-        "Como limitações, o assistente deve evitar a consulta em tickets que não tenham resolução. "
-        "O assistente deve ter uma linguagem amigável, com um tom mais técnico quando necessário. "
-        "O nome do assistente será LSBrain. "
-        "Deve sempre buscar referência primeiro nos arquivos fornecidos. "
-        "Sempre que possivel busque uma solução no arquivo tickets.json. "
-        "Exemplo de Interação: "
-        "O Ticket #0001 foi aberto pelo cliente X e precisamos solucioná-lo. "
-        "Consultor pergunta ao assistente: 'Como podemos resolver o chamado #0001, com o assunto \"Incluir campo de atributo no relatório de carregamento por recurso\"?' "
-        "Assistente responde: 'Para resolver o chamado, é necessário trazer o atributo para a tabela de ordens, incluí-la na procedure no SQL e incluir o campo no report builder.'"
-    )
-    assistant_payload = {
-        "model": "gpt-4o",
-        "name": "LSBrain",
-        "instructions": instructions_text,
-        "tools": [
-            {"type": "file_search"}
-        ],
-        "tool_resources": {
-            "file_search": {
-                "vector_store_ids": [vector_store_id]
-            }
-        },
-        "temperature": 1,
-        "top_p": 1
-    }
-    headers = {
-        "Authorization": f"Bearer {API_KEY}",
-        "OpenAI-Beta": "assistants=v2",
-        "Content-Type": "application/json"
-    }
-    response = requests.post(assistant_url, headers=headers, json=assistant_payload)
-    if response.ok:
-        assistant_result = response.json()
+    try:
+        assistant = client.beta.assistants.create(
+            name="LSBrain",
+            instructions=(
+                "A Lean Scheduling Brasil (LSB) é uma empresa brasileira especializada em soluções de planejamento e programação da produção para indústrias. "
+                "Ela se destaca por aplicar princípios de Lean Manufacturing e ferramentas avançadas de otimização para ajudar empresas a melhorar o fluxo de produção, reduzir desperdícios e aumentar a eficiência. "
+                "A LSB trabalha principalmente com ferramentas de Advanced Planning and Scheduling (APS) que facilitam o planejamento detalhado e a gestão de atividades nas linhas de produção, "
+                "alinhando demanda e capacidade de forma otimizada. Eles oferecem serviços como consultoria, implementação de sistemas, treinamentos e softwares especializados em Lean Manufacturing, "
+                "especialmente em setores que têm alta variabilidade e demanda por personalização na produção. "
+                "Dentro da LSB, temos uma área de Customer Success, onde os clientes recorrem para solucionar problemas e implementar melhorias em suas soluções, através da abertura de tickets no Zoho Desk. "
+                "Nesta área atuam consultores, em sua maioria, mais juniors, que não possuem tanta experiência. Para auxiliá-los a ter um melhor direcionamento acerca do caminho para o desenvolvimento de um Ticket, "
+                "estamos criando um assistente que, com base no histórico de tickets e documentações técnicas das soluções, sugere um caminho inicial para o atendimento da demanda. "
+                "O assistente será implementado dentro das extensões do Zoho Desk e será acionado pelos consultores para direcionamento do desenvolvimento do Ticket. "
+                "Como resposta, esperamos que o assistente informe de forma resumida o assunto do ticket exibido na tela e qual a forma ideal de resolução do mesmo, apontando em quais partes da solução devemos atuar, "
+                "com base nas documentações técnicas fornecidas. "
+                "Como limitações, o assistente deve evitar a consulta em tickets que não tenham resolução. "
+                "O assistente deve ter uma linguagem amigável, com um tom mais técnico quando necessário. "
+                "O nome do assistente será LSBrain. "
+                "Deve sempre buscar referência primeiro nos arquivos fornecidos. "
+                "Sempre que possivel busque uma solução no arquivo tickets.json. "
+                "Exemplo de Interação: "
+                "O Ticket #0001 foi aberto pelo cliente X e precisamos solucioná-lo. "
+                "Consultor pergunta ao assistente: 'Como podemos resolver o chamado #0001, com o assunto \"Incluir campo de atributo no relatório de carregamento por recurso\"?' "
+                "Assistente responde: 'Para resolver o chamado, é necessário trazer o atributo para a tabela de ordens, incluí-la na procedure no SQL e incluir o campo no report builder.'"
+            ),
+            tools=[{"type": "file_search"}],
+            tool_resources={"file_search": {"vector_store_ids": [vector_store_id]}},
+            model="gpt-4o"
+        )
+        
         print("Assistente LSBrain criado com sucesso!")
-        print(json.dumps(assistant_result, indent=2))
-        new_assistant_id = assistant_result['id']
+        print(json.dumps(assistant.model_dump(), indent=2))
+        
         # Salva o ID do assistente para futuras deleções
         with open("assistant_id.txt", "w") as f:
-            f.write(new_assistant_id)
-        return new_assistant_id
-    else:
-        print("Erro ao criar assistente:", response.text)
-        exit(1)
+            f.write(assistant.id)
+            
+        return assistant.id
+    except Exception as e:
+        print(f"Erro ao criar assistente: {str(e)}")
+        raise
 
 # --------------------------
 # Criação da Thread (para interação via Chat)
 # --------------------------
 def create_thread():
-    thread_url = "https://api.openai.com/v1/threads"
-    headers = {
-        "Authorization": f"Bearer {API_KEY}",
-        "Content-Type": "application/json",
-        "OpenAI-Beta": "assistants=v2"
-    }
     try:
-        response = requests.post(thread_url, headers=headers)
-        response.raise_for_status()
-        thread_data = response.json()
-        thread_id = thread_data['id']
-        print("Thread criada. ID:", thread_id)
-        return thread_id
+        thread = client.beta.threads.create()
+        print("Thread criada. ID:", thread.id)
+        return thread.id
     except Exception as e:
         print("Erro ao criar thread:", e)
-        return None
+        raise
 
 # --------------------------
 # Servidor Flask para API de Chat
@@ -583,15 +559,19 @@ def test():
 # Inicialização Única e Permanência Online
 # --------------------------
 def initialize_system():
-    # Deleta os recursos existentes (assistente e vector store) se existirem
-    delete_existing_resources()
-    extract_tickets()            # Processa os tickets ativos
-    extract_archived_tickets()   # Processa os archived tickets (integração igual ao endpoint tickets)
-    file_ids = upload_archives() # Envia os arquivos da pasta GPT/archives (que conterá tickets.json e archivedtickets.json)
-    vector_store_id = create_vector_store(file_ids)
-    assistant_id = create_assistant(vector_store_id)
-    thread_id = create_thread()
-    return assistant_id, thread_id
+    try:
+        # Deleta os recursos existentes (assistente e vector store) se existirem
+        delete_existing_resources()
+        extract_tickets()            # Processa os tickets ativos
+        extract_archived_tickets()   # Processa os archived tickets (integração igual ao endpoint tickets)
+        file_ids = upload_archives() # Envia os arquivos da pasta GPT/archives (que conterá tickets.json e archivedtickets.json)
+        vector_store_id = create_vector_store(file_ids)
+        assistant_id = create_assistant(vector_store_id)
+        thread_id = create_thread()
+        return assistant_id, thread_id
+    except Exception as e:
+        print(f"Erro durante a inicialização do sistema: {str(e)}")
+        raise
 
 if __name__ == '__main__':
     print("Inicializando sistema...")

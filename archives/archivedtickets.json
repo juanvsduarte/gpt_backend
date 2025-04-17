@@ -1,10 +1,10 @@
 [
     {
-        "ticketNumber": "4171",
-        "subject": "OPCENTER l ERRO DE INTEGRAÇÃO",
-        "resolution": "A consulta da view que levava as informações das ordens para o opcenter (LSB_INT_Ordens) estava demorando cinco minutos para rodar e isso fazia com que o PIO desse timeout.\n\nO que eu fiz foi trabalhar em cima da consulta. Não havia muito o que retirar, então apenas reorganizei as junções e os filtros. \n\nA consulta passou de cinco minutos para 9 segundos.",
-        "description": "<div>Bom dia,<br></div><div><br></div><div>Rachel, tudo bem?<br></div><div>Poderia&nbsp; checar o motivo do erro abaixo e das ordens já finalizadas não estarem sendo encerradas do Gantt.<br></div><div><br></div><div>Exemplo: Analisando dentro do SAP uma ordem já foi encerrada porém no APS após integrar os dados a mesma permanece programada no Gantt.<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsne93d869efc4ab40a9229165bf2c061beb02c9164e41807195bb4cca9c870695d/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsne93d869efc4ab40a9229165bf2c061be96eb91438213d3e43d382530c924980b/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000039436005"
+        "ticketNumber": "4138",
+        "subject": "Matriz de setup de sequencia de cores zerada",
+        "resolution": "Para as matrizes de setup dos atributos \"sequência de cores\" e \"cores pantone\", foi criado uma tabela de grupo de setup específica (UniqueChangeoverGroups), visto que há muitas informações e as linhas podem tender a mais de um milhão. Isso foi uma solução sugerida pela Siemens.\n\nEntrando, no PESP responsável por realizar a atualização dessas matrizes estávamos salvando os dados na tabela antiga (ChangeoverGroups). Bastou ajustar esses campos dentro do PESP que a situação foi resolvida.",
+        "description": "<div>&nbsp;Bom dia! A tabela de sequencia de cores vazia, mesmo atualizando a matriz.<br></div><div><br></div><div>O tempo considerado de setup pra sequencia de cores, no momento, é o tempo fixo configurado.<br></div><div><br></div><div>Além disso, apareceu uma matriz de setup pra largura de embobinamento, na modelagem da impressão.<br></div><div><br></div><div>Podem nos auxiliar urgente?</div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000039257122"
     },
     {
         "ticketNumber": "4147",
@@ -14,11 +14,11 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000039275001"
     },
     {
-        "ticketNumber": "4138",
-        "subject": "Matriz de setup de sequencia de cores zerada",
-        "resolution": "Para as matrizes de setup dos atributos \"sequência de cores\" e \"cores pantone\", foi criado uma tabela de grupo de setup específica (UniqueChangeoverGroups), visto que há muitas informações e as linhas podem tender a mais de um milhão. Isso foi uma solução sugerida pela Siemens.\n\nEntrando, no PESP responsável por realizar a atualização dessas matrizes estávamos salvando os dados na tabela antiga (ChangeoverGroups). Bastou ajustar esses campos dentro do PESP que a situação foi resolvida.",
-        "description": "<div>&nbsp;Bom dia! A tabela de sequencia de cores vazia, mesmo atualizando a matriz.<br></div><div><br></div><div>O tempo considerado de setup pra sequencia de cores, no momento, é o tempo fixo configurado.<br></div><div><br></div><div>Além disso, apareceu uma matriz de setup pra largura de embobinamento, na modelagem da impressão.<br></div><div><br></div><div>Podem nos auxiliar urgente?</div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000039257122"
+        "ticketNumber": "4171",
+        "subject": "OPCENTER l ERRO DE INTEGRAÇÃO",
+        "resolution": "A consulta da view que levava as informações das ordens para o opcenter (LSB_INT_Ordens) estava demorando cinco minutos para rodar e isso fazia com que o PIO desse timeout.\n\nO que eu fiz foi trabalhar em cima da consulta. Não havia muito o que retirar, então apenas reorganizei as junções e os filtros. \n\nA consulta passou de cinco minutos para 9 segundos.",
+        "description": "<div>Bom dia,<br></div><div><br></div><div>Rachel, tudo bem?<br></div><div>Poderia&nbsp; checar o motivo do erro abaixo e das ordens já finalizadas não estarem sendo encerradas do Gantt.<br></div><div><br></div><div>Exemplo: Analisando dentro do SAP uma ordem já foi encerrada porém no APS após integrar os dados a mesma permanece programada no Gantt.<br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsne93d869efc4ab40a9229165bf2c061beb02c9164e41807195bb4cca9c870695d/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div><div><br></div><div><img src=\"https://desk.zoho.com/portal/api/uploads/edbsne93d869efc4ab40a9229165bf2c061be96eb91438213d3e43d382530c924980b/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\" style=\"max-width: 100%; height: auto; box-sizing: border-box; padding: 0\"><br></div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000039436005"
     },
     {
         "ticketNumber": "4049",
@@ -98,18 +98,18 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000022483001"
     },
     {
-        "ticketNumber": "2325",
-        "subject": "Relatorio programação por recurso",
-        "resolution": "Criado campo de família de cores de impressão no sql e atribuído este campo no relatório de programação por recurso no campo de observação, na qual para operação de impressão acontece o preenchimento desta informação das famílias de cada ordem.\n\nAonde o operador já tem visão prévia da próxima ordem e pode iniciar a preparação dos mesmos.",
-        "description": "<div>No relatório de programação por recurso, necessito que seja acrescentado uma coluna de tintas, porem é necessário que venha a descrição e não o código das tintas.</div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000022163001"
-    },
-    {
         "ticketNumber": "2326",
         "subject": "Agrupamento na operação de impressão por família",
         "resolution": "Neste ticket criamos o agrupamento da operação por família de cor, antes estamos agrupando por código das cores, entendeu-se a necessidade de analisar por família, por isso criamos o campo de família _cor no sql e ajustamos a configuração.",
         "description": "<div>Necessito que seja feito um agrupamento por cores no recurso de impressão visto que nesse primeiro momento estamos tratando somente com a informação de código, com esta informação faremos um agrupamento por família de cor, exemplo: Vermelho, amarelo, etc....</div>",
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000022163131"
+    },
+    {
+        "ticketNumber": "2325",
+        "subject": "Relatorio programação por recurso",
+        "resolution": "Criado campo de família de cores de impressão no sql e atribuído este campo no relatório de programação por recurso no campo de observação, na qual para operação de impressão acontece o preenchimento desta informação das famílias de cada ordem.\n\nAonde o operador já tem visão prévia da próxima ordem e pode iniciar a preparação dos mesmos.",
+        "description": "<div>No relatório de programação por recurso, necessito que seja acrescentado uma coluna de tintas, porem é necessário que venha a descrição e não o código das tintas.</div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000022163001"
     },
     {
         "ticketNumber": "2035",
@@ -154,18 +154,18 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000014503003"
     },
     {
+        "ticketNumber": "834",
+        "subject": "Preactor PRD -   tela Gantt Travada,  não sai da tela",
+        "resolution": "Ventury,\n\nDerrubei o preactor! Por favor abra e veja se trava novamente.\n\nObrigado!",
+        "description": "<div>&nbsp; &nbsp; &nbsp; Bom dia,<br /></div><div><br /></div><div>favor destravar, isto &eacute; algo recorrente,&nbsp; nesta &uacute;ltima vez ,&nbsp; eu sai da tela do Gantt,&nbsp; fiz uma altera&ccedil;&atilde;o no cadastro,&nbsp; retornei ao Gantt,&nbsp; quando a tela estava abrindo&nbsp; e ainda n&atilde;o tinha terminado de processar, eu cliquei pra sair&nbsp; e retornar ao cadastro,&nbsp; neste momento&nbsp; travou&nbsp; ontem dia 24.<br /></div><div><br /></div><div>Favor destravar.<br /></div><div><br /></div>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000006053045"
+    },
+    {
         "ticketNumber": "832",
         "subject": "Preactor PRD -  erro ao executar stored procedure",
         "resolution": "Ventury,\n\nO erro estava diretamente relacionada a valores despadronizados de velocidades. Onde temos velocidades com casas decimais separadas ora por vírgula e ora por ponto.\n\nInseri uma cláusula que irá trocar todas as vírgulas por ponto e não teremos mais esse problema.\n\nPode rodar novamente!\n\nAtt,\nRicardo Linhares",
         "description": "<html><head></head><body><div>Bom dia,&nbsp;<br></div><div><br></div><div>favor verificar:<br><img style=\"padding: 0px; max-width: 100%; box-sizing: border-box\" src=\"https://desk.zoho.com/portal/api/uploads/edbsncced3eeaeaeec87fd1f85be36ddcc5672d4725f9001500feac9c874c8e719194/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\"><br></div></body></html>",
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000005969003"
-    },
-    {
-        "ticketNumber": "831",
-        "subject": "PRD   operação não filtra no atributo",
-        "resolution": "Ventury,\n\nPara o correto funcionamento do filtro, devemos importar os dados para que os dados sejam atualizados.\n\nNo caso destas operações, somente importando os dados já podemos identificar que as mesmas não entram mais para o Preactor.\n\nObrigado!\nQualquer dúvida estarei à disposição!",
-        "description": "<html><head></head><body><div>Ricardo,<br>em PRD ele permitiu e sequenciou tudo. Não pode,<br>Em HML&nbsp; ele segurou os cabos com estas operações O081 e O091, está correto.<br><br><img style=\"padding: 0px; max-width: 100%; box-sizing: border-box\" src=\"https://desk.zoho.com/portal/api/uploads/edbsnc2a9e0e54116bf59a4d7334c2af84c93002a195603a1ad858d42f26c3652ebae/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\"><br></div></body></html>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000005930003"
     },
     {
         "ticketNumber": "830",
@@ -175,11 +175,11 @@
         "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000005924001"
     },
     {
-        "ticketNumber": "834",
-        "subject": "Preactor PRD -   tela Gantt Travada,  não sai da tela",
-        "resolution": "Ventury,\n\nDerrubei o preactor! Por favor abra e veja se trava novamente.\n\nObrigado!",
-        "description": "<div>&nbsp; &nbsp; &nbsp; Bom dia,<br /></div><div><br /></div><div>favor destravar, isto &eacute; algo recorrente,&nbsp; nesta &uacute;ltima vez ,&nbsp; eu sai da tela do Gantt,&nbsp; fiz uma altera&ccedil;&atilde;o no cadastro,&nbsp; retornei ao Gantt,&nbsp; quando a tela estava abrindo&nbsp; e ainda n&atilde;o tinha terminado de processar, eu cliquei pra sair&nbsp; e retornar ao cadastro,&nbsp; neste momento&nbsp; travou&nbsp; ontem dia 24.<br /></div><div><br /></div><div>Favor destravar.<br /></div><div><br /></div>",
-        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000006053045"
+        "ticketNumber": "831",
+        "subject": "PRD   operação não filtra no atributo",
+        "resolution": "Ventury,\n\nPara o correto funcionamento do filtro, devemos importar os dados para que os dados sejam atualizados.\n\nNo caso destas operações, somente importando os dados já podemos identificar que as mesmas não entram mais para o Preactor.\n\nObrigado!\nQualquer dúvida estarei à disposição!",
+        "description": "<html><head></head><body><div>Ricardo,<br>em PRD ele permitiu e sequenciou tudo. Não pode,<br>Em HML&nbsp; ele segurou os cabos com estas operações O081 e O091, está correto.<br><br><img style=\"padding: 0px; max-width: 100%; box-sizing: border-box\" src=\"https://desk.zoho.com/portal/api/uploads/edbsnc2a9e0e54116bf59a4d7334c2af84c93002a195603a1ad858d42f26c3652ebae/content?portalId=edbsn18f64b79467f47d7356b2598c2444a80b0632a624cb40deeb17e06e0347090d4\"><br></div></body></html>",
+        "webUrl": "https://desk.zoho.com/support/suportelsb/ShowHomePage.do#Cases/dv/358470000005930003"
     },
     {
         "ticketNumber": "828",
